@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GB Realty — Premier Real Estate Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+        onerror="this.style.display='none';document.querySelector('.nav-logo-text').style.display='block'">
+      <span class="nav-logo-text">GB<span>Realty</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Portfolio</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+919088990889" class="nav-cta">+91-90889-90889</a>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <!-- <button class="mobile-close" id="menuClose">✕</button> -->
+    <a href="#" onclick="closeMob()">Home</a>
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#project" onclick="closeMob()">Portfolio</a>
+    <a href="#philosophy" onclick="closeMob()">Philosophy</a>
+    <a href="#gallery" onclick="closeMob()">Gallery</a>
+    <a href="#contact" onclick="closeMob()">Contact</a>
+    <a href="tel:+919088990889"
+      style="color:var(--gold);font-size:18px;font-family:'DM Sans',sans-serif">+91-90889-90889</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-slides">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag" data-aos="fade-up" data-aos-duration="800">Premier Real Estate Developer · Chandigarh</p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
+        Elevating<br><em>Luxury</em><br>Living</h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="220" data-aos-duration="900">Transformative real
+        estate projects in strategically located growth corridors. Where architecture becomes a timeless legacy.</p>
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="340" data-aos-duration="800">
+        <a href="#project" class="btn-primary">View Portfolio</a>
+        <a href="#contact" class="btn-ghost">Enquire Now</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <div class="hero-dot active" onclick="goSlide(0)"></div>
+      <div class="hero-dot" onclick="goSlide(1)"></div>
+      <div class="hero-dot" onclick="goSlide(2)"></div>
+      <div class="hero-dot" onclick="goSlide(3)"></div>
+    </div>
+    <div class="hero-counter"><strong id="slideNum">01</strong> / 04</div>
+    <div class="scroll-hint"><span>Scroll</span></div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+      <div class="stat-number">8.75</div>
+      <div class="stat-label">Acres — Opus One</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="80">
+      <div class="stat-number">3–5</div>
+      <div class="stat-label">BHK Premium Residences</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="160">
+      <div class="stat-number">RERA</div>
+      <div class="stat-label">Approved & Certified</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="240">
+      <div class="stat-number">160009</div>
+      <div class="stat-label">Chandigarh HQ</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div>
+        <p class="section-tag" data-aos="fade-up" data-aos-duration="700">Who We Are</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">GB Realty —<br>A Legacy Being<br>Written
+        </h2>
+        <p class="about-body" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">GB Realty is the
+          brainchild of visionary entrepreneurs with decades of real-world experience across various business sectors
+          with a strong national and international presence. Founded by a like-minded group of individuals with a
+          demonstrated track record of success, GB Realty is the latest venture by a conglomerate with interests in
+          luxury hospitality, global student mobility, education, media, and entertainment. The company was established
+          to deliver transformative real estate projects, in strategically located growth corridors.</p>
+        <a href="#contact" class="btn-primary" data-aos="fade-up" data-aos-delay="180">Read More</a>
+        <div class="about-pillars" data-aos="fade-up" data-aos-delay="260" data-aos-duration="800">
+          <div class="pillar">
+            <div class="pillar-title">Our Promise</div>
+            <div class="pillar-body">Committed to excellence, trust, and transparency in every project.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Vision Manifest</div>
+            <div class="pillar-body">Pioneering global standards for quality and innovation in real estate.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Mission Statement</div>
+            <div class="pillar-body">Transforming living spaces through meticulous design and sustainability.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Our Values</div>
+            <div class="pillar-body">Integrity, transparency, and enduring value for all stakeholders.</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-images" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+        <div class="about-img-main">
+          <img src="https://gbrealty.com/images/about-img1.jpg" alt="GB Realty"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#2c1f0a,#1a1208)'">
+        </div>
+        <div class="about-img-accent">
+          <img src="https://gbrealty.com/images/about-img2.jpg" alt="GB Realty"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,#0a1422,#122238)'">
+        </div>
+        <div class="gold-bar"></div>
+        <div class="gold-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section class="project" id="project">
+    <div class="project-inner">
+      <div class="project-visual" data-aos="fade-up" data-aos-duration="900">
+        <img src="https://gbrealty.com/images/banner-img3.jpg" alt="Opus One"
+          onerror="this.parentElement.style.background='linear-gradient(160deg,#1c1408,#2a2010,#0d0d0d)'">
+        <div class="proj-overlay"></div>
+        <div class="proj-badge">Unveiled</div>
+        <div class="proj-name">
+          <h3>Opus One</h3><span>New Chandigarh</span>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="120">
+        <p class="section-tag">Flagship Development</p>
+        <h2 class="section-title">Opus One</h2>
+        <div class="divider"></div>
+        <p style="font-size:15px;color:var(--text-muted);line-height:1.95;margin-top:14px">Opus One is GB Realty's
+          flagship premium residential real estate development. Strategically located at the vibrantly evolving suburb
+          of Eco-City in New Chandigarh, Opus One will become a beacon of fine upscale living in the tricity region.</p>
+        <div class="project-specs">
+          <div class="spec">
+            <div class="spec-label">Type</div>
+            <div class="spec-value">Residential</div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Location</div>
+            <div class="spec-value">Eco-City 2, New Chandigarh</div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Total Area</div>
+            <div class="spec-value">8.75 Acres</div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Product Mix</div>
+            <div class="spec-value">3, 4 & 5 BHK</div>
+          </div>
+        </div>
+        <div class="rera-badge">RERA Approved — PBRERA-SAS81-PR1267</div>
+        <div style="margin-top:32px"><a href="#contact" class="btn-primary">Enquire Now</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-grid">
+      <div>
+        <p class="section-tag" data-aos="fade-up">Our Belief System</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Real Estate as<br>an Art Form</h2>
+        <p class="philosophy-body" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">At GB Realty, we
+          believe real estate transcends mere construction — it is an art form that must inspire and endure. Our
+          philosophy centres on creating spaces that seamlessly blend stability, beauty, and purpose, serving as
+          timeless heirlooms for generations to come.</p>
+        <p class="philosophy-body" data-aos="fade-up" data-aos-delay="180" data-aos-duration="800"
+          style="margin-top:14px">Each project is envisioned not just as a structure, but as a legacy — crafted with
+          precision, innovation, and an unwavering commitment to excellence. By combining mindful design with
+          uncompromising quality, GB Realty strives to deliver spaces that resonate with elegance and functionality.</p>
+        <div class="philosophy-quote" data-aos="fade-up" data-aos-delay="260" data-aos-duration="800">"Every
+          relationship we forge and each project we undertake stands as a testament to our integrity and our vision."
+        </div>
+      </div>
+      <div>
+        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="0">
+          <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <polyline points="9,12 11,14 15,10" />
+          </svg>
+          <div>
+            <div class="phil-title">RERA Approved</div>
+            <div class="phil-body">Full regulatory compliance with RERA certification for complete buyer confidence.
+            </div>
+          </div>
+        </div>
+        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+          <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4l3 3" />
+          </svg>
+          <div>
+            <div class="phil-title">Timeless Design</div>
+            <div class="phil-body">Architecture crafted for generations — precision, sustainability, and elegance in
+              every detail.</div>
+          </div>
+        </div>
+        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="200">
+          <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9,22 9,12 15,12 15,22" />
+          </svg>
+          <div>
+            <div class="phil-title">Enduring Value</div>
+            <div class="phil-body">Investments that appreciate — exceptional returns for residents and investors alike.
+            </div>
+          </div>
+        </div>
+        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="300">
+          <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z" />
+            <path d="M2 17l10 5 10-5" />
+          </svg>
+          <div>
+            <div class="phil-title">Sustainable Vision</div>
+            <div class="phil-body">Guided by market research, global sustainability best practices, and forward-thinking
+              design.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-title-row">
+      <div>
+        <p class="section-tag" data-aos="fade-up">Visual Journey</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Our Gallery</h2>
+      </div>
+      <a href="#contact" class="btn-ghost" data-aos="fade-left">View All</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-cell wide tall" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+        <img src="https://gbrealty.com/images/renders/01.jpg" alt="Opus One Render"
+          onerror="this.src='https://gbrealty.com/images/gallery1.jpg'">
+        <div class="g-label">Opus One — Aerial View</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="80">
+        <img src="https://gbrealty.com/images/renders/02.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery2.jpg'">
+        <div class="g-label">Tower Facade</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="130">
+        <img src="https://gbrealty.com/images/renders/07.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery3.jpg'">
+        <div class="g-label">Lobby Design</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+        <img src="https://gbrealty.com/images/gallery1.jpg" alt="Gallery">
+        <div class="g-label">Living Space</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="110">
+        <img src="https://gbrealty.com/images/gallery2.jpg" alt="Gallery">
+        <div class="g-label">Amenities</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="160">
+        <img src="https://gbrealty.com/images/gallery3.jpg" alt="Gallery">
+        <div class="g-label">Interior Design</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+        <img src="https://gbrealty.com/images/renders/03.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery4.jpg'">
+        <div class="g-label">Elevation</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+        <img src="https://gbrealty.com/images/renders/04.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery5.jpg'">
+        <div class="g-label">Landscape</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+        <img src="https://gbrealty.com/images/renders/05.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery6.jpg'">
+        <div class="g-label">Pool Deck</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
+        <img src="https://gbrealty.com/images/renders/06.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery7.jpg'">
+        <div class="g-label">Club House</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+        <img src="https://gbrealty.com/images/renders/08.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery8.jpg'">
+        <div class="g-label">Master Suite</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+        <img src="https://gbrealty.com/images/renders/09.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery9.jpg'">
+        <div class="g-label">Terrace View</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+        <img src="https://gbrealty.com/images/renders/10.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery10.jpg'">
+        <div class="g-label">Facade Detail</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
+        <img src="https://gbrealty.com/images/renders/11.jpg" alt="Render"
+          onerror="this.src='https://gbrealty.com/images/gallery12.jpg'">
+        <div class="g-label">Night View</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+        <img src="https://gbrealty.com/images/gallery4.jpg" alt="Gallery">
+        <div class="g-label">Kitchen</div>
+      </div>
+      <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+        <img src="https://gbrealty.com/images/gallery5.jpg" alt="Gallery">
+        <div class="g-label">Bedroom</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <p class="section-tag" data-aos="fade-up">Why Choose Us</p>
+    <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Built on Trust,<br>Delivered with Excellence
+    </h2>
+    <div class="trust-grid">
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <polyline points="9,12 11,14 15,10" />
+        </svg>
+        <div class="trust-card-title">RERA Approved</div>
+        <div class="trust-card-body">Full regulatory compliance — PBRERA-SAS81-PR1267. Every detail legally verified and
+          publicly accessible for complete buyer confidence.</div>
+      </div>
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v4l3 3" />
+        </svg>
+        <div class="trust-card-title">Decades of Experience</div>
+        <div class="trust-card-body">Entrepreneurs with deep expertise in luxury hospitality, global education, media,
+          and real estate with a proven international track record.</div>
+      </div>
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+        </svg>
+        <div class="trust-card-title">Uncompromising Quality</div>
+        <div class="trust-card-body">Every project is envisioned as a legacy — crafted with precision, innovation, and
+          an unwavering commitment to the finest materials and workmanship.</div>
+      </div>
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 00-3-3.87" />
+          <path d="M16 3.13a4 4 0 010 7.75" />
+        </svg>
+        <div class="trust-card-title">Stakeholder First</div>
+        <div class="trust-card-body">Residents, investors, vendors, and team members are at the heart of everything we
+          do — every decision made with all stakeholders' best interests at the forefront.</div>
+      </div>
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <div class="trust-card-title">Prime Location</div>
+        <div class="trust-card-body">Strategically located in Eco-City 2, New Chandigarh — one of the tricity region's
+          fastest-growing corridors with excellent connectivity and infrastructure.</div>
+      </div>
+      <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+        <svg class="t-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+        </svg>
+        <div class="trust-card-title">Sustainable Vision</div>
+        <div class="trust-card-body">Guided by market research, global sustainability best practices, and
+          forward-thinking design principles across all strategic land holdings worldwide.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">2
+    <div class="contact-grid">
+      <div>
+        <p class="section-tag" data-aos="fade-up">Reach Out</p>
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Let's Start a<br>Conversation</h2>
+        <p class="contact-body" data-aos="fade-up" data-aos-delay="100">Whether you're looking to invest, purchase a
+          home, or simply want to know more about Opus One — our team is here to guide you every step of the way.</p>
+        <div class="c-detail" data-aos="fade-up" data-aos-delay="140">
+          <svg class="c-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
+          </svg>
+          <div>
+            <div class="c-label">Phone</div>
+            <div class="c-value"><a href="tel:+919088990889">+91-90889-90889</a></div>
+          </div>
+        </div>
+        <div class="c-detail" data-aos="fade-up" data-aos-delay="180">
+          <svg class="c-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <div>
+            <div class="c-label">Email</div>
+            <div class="c-value"><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></div>
+          </div>
+        </div>
+        <div class="c-detail" data-aos="fade-up" data-aos-delay="220">
+          <svg class="c-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <div>
+            <div class="c-label">Address</div>
+            <div class="c-value">SCO – 1,2,3, Second Floor,<br>Sector 8C, Chandigarh – 160009</div>
+          </div>
+        </div>
+        <div class="c-detail" data-aos="fade-up" data-aos-delay="260">
+          <svg class="c-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12,6 12,12 16,14" />
+          </svg>
+          <div>
+            <div class="c-label">Work Hours</div>
+            <div class="c-value">Monday – Sunday: 10:00 – 18:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+        <div class="form-title">Send Us Your Query</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-group"><label>E-Mail Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group">
+          <label>Purpose</label>
+          <select>
+            <option value="">Select Purpose</option>
+            <option>Residential Property</option>
+            <option>Commercial Property</option>
+            <option>Others</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Enter Message"></textarea></div>
+        <button class="form-submit" onclick="handleSubmit(this)">Submit</button>
+        <p class="form-disclaimer"><strong>Disclaimer:</strong> All project information, images, and visuals on this
+          website are conceptual and for general guidance only. Features, specifications, plans, and amenities are
+          subject to change without prior notice and as per statutory approvals. Furniture, décor, and accessories shown
+          are for illustration purposes only and not part of the standard offering.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo-img" src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+          onerror="this.style.display='none';document.querySelector('.footer-logo-text').style.display='block'">
+        <div class="footer-logo-text">GB Realty</div>
+        <p class="footer-desc">Premier real estate developer delivering transformative projects in strategically located
+          growth corridors across the tricity region and beyond. A Venture by Optas Group.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/gbrealtyofficial" class="s-link" target="_blank" rel="noopener"
+            aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg></a>
+          <a href="https://www.instagram.com/gbrealtyofficial/" class="s-link" target="_blank" rel="noopener"
+            aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg></a>
+          <a href="https://x.com/gbrealtyofc" class="s-link" target="_blank" rel="noopener" aria-label="X"><svg
+              width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a>
+          <a href="https://www.youtube.com/@GBRealtyOfficial" class="s-link" target="_blank" rel="noopener"
+            aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12z" />
+            </svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#project">Portfolio</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="https://gbrealty.com/career/" target="_blank" rel="noopener">Career</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Group Verticals</div>
+        <ul class="footer-links">
+          <li><a href="#">Luxury Hospitality</a></li>
+          <li><a href="#">Global Education</a></li>
+          <li><a href="#">Media & Entertainment</a></li>
+          <li><a href="#">Residential Projects</a></li>
+          <li><a href="#">Commercial</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+919088990889">+91-90889-90889</a></li>
+          <li><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></li>
+          <li><a href="#contact">SCO 1,2,3, Sector 8C,<br>Chandigarh 160009</a></li>
+          <li style="color:var(--text-muted);font-size:13px;margin-top:4px">Mon–Sun: 10:00–18:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 GB Realty. All Rights Reserved. | Powered by <a
+          href="https://opulencedigitech.com/" target="_blank" rel="noopener"
+          style="color:var(--gold);text-decoration:none">Opulence Digitech</a></div>
+      <div class="footer-legal">
+        <a href="https://gbrealty.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://gbrealty.com/channel-policy/" target="_blank" rel="noopener">Channel Policy</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- MODAL -->
+  <div id="imageModal" class="img-modal">
+    <span class="img-close">&times;</span>
+
+    <span class="img-nav prev">&#10094;</span>
+    <span class="img-nav next">&#10095;</span>
+
+    <div class="img-modal-content">
+      <img id="modalImg">
+    </div>
+    
+    <div id="imgCaption"></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
