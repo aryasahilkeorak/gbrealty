@@ -43,6 +43,10 @@ document.getElementById('menuToggle').addEventListener('click', () => {
     document.getElementById('menuToggle').classList.toggle('open');
 });
 
+function closeMob() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuToggle').classList.remove('open');
+}
 
 // Form
 // function handleSubmit(btn) {
