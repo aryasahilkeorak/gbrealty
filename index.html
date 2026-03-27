@@ -48,7 +48,7 @@
   <meta property="og:type" content="website">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://gbrealty.com/">
+  <link rel="canonical" href=" /">
 
   <!-- Favicon -->
   <link rel="icon" href="./assets/images/logo-ico.png" type="image/png">
@@ -362,35 +362,43 @@
         <div class="g-label">Interior Design</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="./assets/images/renders/03.jpg" alt="Render" onerror="this.src='./assets/images/gallery4.jpg'" loading="lazy">
+        <img src="./assets/images/renders/03.jpg" alt="Render" onerror="this.src='./assets/images/gallery4.jpg'"
+          loading="lazy">
         <div class="g-label">Elevation</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="./assets/images/renders/04.jpg" alt="Render" onerror="this.src='./assets/images/gallery5.jpg'" loading="lazy">
+        <img src="./assets/images/renders/04.jpg" alt="Render" onerror="this.src='./assets/images/gallery5.jpg'"
+          loading="lazy">
         <div class="g-label">Landscape</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
-        <img src="./assets/images/renders/05.jpg" alt="Render" onerror="this.src='./assets/images/gallery6.jpg'" loading="lazy">
+        <img src="./assets/images/renders/05.jpg" alt="Render" onerror="this.src='./assets/images/gallery6.jpg'"
+          loading="lazy">
         <div class="g-label">Pool Deck</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
-        <img src="./assets/images/renders/06.jpg" alt="Render" onerror="this.src='./assets/images/gallery7.jpg'" loading="lazy">
+        <img src="./assets/images/renders/06.jpg" alt="Render" onerror="this.src='./assets/images/gallery7.jpg'"
+          loading="lazy">
         <div class="g-label">Club House</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="./assets/images/renders/08.jpg" alt="Render" onerror="this.src='./assets/images/gallery8.jpg'" loading="lazy">
+        <img src="./assets/images/renders/08.jpg" alt="Render" onerror="this.src='./assets/images/gallery8.jpg'"
+          loading="lazy">
         <div class="g-label">Master Suite</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="./assets/images/renders/09.jpg" alt="Render" onerror="this.src='./assets/images/gallery9.jpg'" loading="lazy">
+        <img src="./assets/images/renders/09.jpg" alt="Render" onerror="this.src='./assets/images/gallery9.jpg'"
+          loading="lazy">
         <div class="g-label">Terrace View</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
-        <img src="./assets/images/renders/10.jpg" alt="Render" onerror="this.src='./assets/images/gallery10.jpg'" loading="lazy">
+        <img src="./assets/images/renders/10.jpg" alt="Render" onerror="this.src='./assets/images/gallery10.jpg'"
+          loading="lazy">
         <div class="g-label">Facade Detail</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
-        <img src="./assets/images/renders/11.jpg" alt="Render" onerror="this.src='./assets/images/gallery12.jpg'" loading="lazy">
+        <img src="./assets/images/renders/11.jpg" alt="Render" onerror="this.src='./assets/images/gallery12.jpg'"
+          loading="lazy">
         <div class="g-label">Night View</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
@@ -522,13 +530,22 @@
           </div>
         </div>
       </div>
-      <div class="contact-form" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+
+      <form class="contact-form" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100" id="contactForm">
         <div class="form-title">Send Us Your Query</div>
         <div class="form-row">
-          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
-          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your full name" id="name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+91 XXXXX XXXXX" id="mobile">
+          </div>
         </div>
-        <div class="form-group"><label>E-Mail Address</label><input type="email" placeholder="your@email.com"></div>
+
+        <div class="form-group"><label>E-Mail Address</label><input type="email" placeholder="your@email.com"
+            id="email"></div>
         <div class="form-group">
           <label>Purpose</label>
           <select>
@@ -538,13 +555,20 @@
             <option>Others</option>
           </select>
         </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Enter Message"></textarea></div>
-        <button class="form-submit" onclick="handleSubmit(this)">Submit</button>
+
+        <div class="form-group">
+          <label>Enter Your Address</label>
+          <textarea placeholder="Enter Your Address" id="address"></textarea>
+        </div>
+
+        <button class="form-submit">Submit</button>
+
         <p class="form-disclaimer"><strong>Disclaimer:</strong> All project information, images, and visuals on this
           website are conceptual and for general guidance only. Features, specifications, plans, and amenities are
           subject to change without prior notice and as per statutory approvals. Furniture, décor, and accessories shown
           are for illustration purposes only and not part of the standard offering.</p>
-      </div>
+      </form>
+
     </div>
   </section>
 

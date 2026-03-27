@@ -45,18 +45,18 @@ document.getElementById('menuToggle').addEventListener('click', () => {
 
 
 // Form
-function handleSubmit(btn) {
-    btn.textContent = 'Sending…';
-    btn.style.opacity = '0.7';
-    btn.disabled = true;
-    setTimeout(() => {
-        btn.textContent = '✓ Enquiry Sent Successfully';
-        btn.style.background = '#3a6b47';
-        btn.style.color = '#fff';
-        btn.style.opacity = '1';
-        btn.closest('.contact-form').querySelectorAll('input,select,textarea').forEach(i => i.value = '');
-    }, 1600);
-}
+// function handleSubmit(btn) {
+//     btn.textContent = 'Sending…';
+//     btn.style.opacity = '0.7';
+//     btn.disabled = true;
+//     setTimeout(() => {
+//         btn.textContent = '✓ Enquiry Sent Successfully';
+//         btn.style.background = '#3a6b47';
+//         btn.style.color = '#fff';
+//         btn.style.opacity = '1';
+//         btn.closest('.contact-form').querySelectorAll('input,select,textarea').forEach(i => i.value = '');
+//     }, 1600);
+// }
 
 
 // gallery view
@@ -129,20 +129,15 @@ const EMAILJS_SERVICE_ID = "service_70sqgwn";   // from Email Services
 const EMAILJS_TEMPLATE_ID = "template_598dzqb";  // from Email Templates
 // =============================================
 
+// init
 emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const form = document.getElementById('contactForm');
-const btn = document.getElementById('submitBtn');
-const alert = document.getElementById('alertBox');
+const btn = document.querySelector('.form-submit');
 
-function showError(id, show) {
-    const el = document.getElementById(id);
-    el.style.display = show ? 'block' : 'none';
-}
-
+// validation helpers
 function markInvalid(id, invalid) {
-    const el = document.getElementById(id);
-    el.classList.toggle('invalid', invalid);
+    document.getElementById(id).classList.toggle('invalid', invalid);
 }
 
 function validate() {
@@ -158,52 +153,70 @@ function validate() {
     const mobileOk = /^[+\d\s\-()]{7,15}$/.test(mobile);
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    showError('nameErr', !nameOk); markInvalid('name', !nameOk);
-    showError('addressErr', !addressOk); markInvalid('address', !addressOk);
-    showError('mobileErr', !mobileOk); markInvalid('mobile', !mobileOk);
-    showError('emailErr', !emailOk); markInvalid('email', !emailOk);
+    markInvalid('name', !nameOk);
+    markInvalid('address', !addressOk);
+    markInvalid('mobile', !mobileOk);
+    markInvalid('email', !emailOk);
 
     return nameOk && addressOk && mobileOk && emailOk;
 }
 
+// FORM SUBMIT (MAIN LOGIC)
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    alert.className = 'alert';
-    alert.style.display = 'none';
 
     if (!validate()) return;
 
+    // button loading UI
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
     btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span> Sending…';
 
     const templateParams = {
         from_name: document.getElementById('name').value.trim(),
         address: document.getElementById('address').value.trim(),
         mobile: document.getElementById('mobile').value.trim(),
         from_email: document.getElementById('email').value.trim(),
+        purpose: document.querySelector('select').value,
         to_email: "aryasahilkeorak@gmail.com"
     };
 
     try {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-        alert.textContent = '✅ Message sent! We\'ll get back to you soon.';
-        alert.className = 'alert success';
+        await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            templateParams
+        );
+
+        // SUCCESS UI (your style preserved)
+        btn.textContent = '✓ Enquiry Sent Successfully';
+        btn.style.background = '#3a6b47';
+        btn.style.color = '#fff';
+
+        // reset form
         form.reset();
-        ['name', 'address', 'mobile', 'email'].forEach(id => markInvalid(id, false));
-    } catch (err) {
-        alert.textContent = '❌ Something went wrong. Please try again.';
-        alert.className = 'alert error';
-        console.error(err);
+
+    } catch (error) {
+        console.error(error);
+
+        btn.textContent = '❌ Failed! Try Again';
+        btn.style.background = '#8B0000';
+        btn.style.color = '#fff';
     }
 
-    btn.disabled = false;
-    btn.innerHTML = 'Send Message';
+    // reset button after 2 sec
+    setTimeout(() => {
+        btn.textContent = 'Submit';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.color = '';
+    }, 2000);
 });
 
-// Live validation clear on input
+// LIVE INPUT FIX (remove red border while typing)
 ['name', 'address', 'mobile', 'email'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
         markInvalid(id, false);
-        showError(id + 'Err', false);
     });
 });
