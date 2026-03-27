@@ -1368,6 +1368,10 @@ footer {
         padding: 0 24px 80px;
     }
 
+    .hero-slide {
+        background-position: center;
+    }
+
     .hero-dots {
         left: 24px;
         bottom: 44px;
@@ -1407,8 +1411,16 @@ footer {
         grid-row: span 1;
     }
 
+    .trust-card {
+        padding: 30px 24px;
+    }
+
     .trust-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        padding: 30px 24px;
     }
 
     .footer-grid {
@@ -1423,6 +1435,14 @@ footer {
 }
 
 @media (max-width: 600px) {
+    section {
+        padding: 52px 24px;
+    }
+
+    .hero-content {
+        padding: 0 0px 80px;
+    }
+
     .trust-grid {
         grid-template-columns: 1fr;
     }

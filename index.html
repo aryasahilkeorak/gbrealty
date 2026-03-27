@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "GB Realty",
+  "image": "https://gbrealty.com/images/GBR-Logo-white.png",
+  "url": "https://gbrealty.com",
+  "telephone": "+91-90090-90090",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "SCO 1,2,3, Sector 8C",
+    "addressLocality": "Chandigarh",
+    "postalCode": "160009",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    "Chandigarh",
+    "New Chandigarh",
+    "Mohali",
+    "Tricity"
+  ]
+}
+</script>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GB Realty — Premier Real Estate Developer</title>
+
+  <!-- SEO META -->
+  <title>Best Properties in Chandigarh | New Chandigarh | Mohali | GB Realty</title>
+
+  <meta name="description"
+    content="Looking for best properties in Chandigarh, New Chandigarh & Mohali? Explore premium residential projects by GB Realty in Tricity. Luxury living, RERA approved.">
+  <meta name="keywords"
+    content="properties in Chandigarh, best properties in Chandigarh, properties in new Chandigarh, best properties in new Chandigarh, properties in Mohali, best properties in Mohali, properties in tricity, GB Realty, gb realty, real estate Chandigarh">
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="GB Realty">
+
+  <!-- Open Graph (for sharing) -->
+  <meta property="og:title" content="Best Properties in Chandigarh | GB Realty">
+  <meta property="og:description" content="Premium properties in Chandigarh, Mohali & New Chandigarh.">
+  <meta property="og:image" content="https://gbrealty.com/images/renders/01.jpg">
+  <meta property="og:url" content="https://gbrealty.com">
+  <meta property="og:type" content="website">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://gbrealty.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/logo-ico.png" type="image/png">
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
@@ -18,7 +67,7 @@
   <!-- NAV -->
   <nav id="navbar">
     <a href="#" class="nav-logo">
-      <img src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+      <img src="./assets/images/GBR-Logo-white.png" alt="GB Realty" loading="lazy"
         onerror="this.style.display='none';document.querySelector('.nav-logo-text').style.display='block'">
       <span class="nav-logo-text">GB<span>Realty</span></span>
     </a>
@@ -30,7 +79,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="tel:+919088990889" class="nav-cta">+91-90889-90889</a>
+    <a href="tel:+919088990889" class="nav-cta">+91-90090-90090</a>
     <button class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
@@ -46,7 +95,7 @@
     <a href="#gallery" onclick="closeMob()">Gallery</a>
     <a href="#contact" onclick="closeMob()">Contact</a>
     <a href="tel:+919088990889"
-      style="color:var(--gold);font-size:18px;font-family:'DM Sans',sans-serif">+91-90889-90889</a>
+      style="color:var(--gold);font-size:18px;font-family:'DM Sans',sans-serif">+91-90090-90090</a>
   </div>
 
   <!-- HERO -->
@@ -77,6 +126,21 @@
     <div class="hero-counter"><strong id="slideNum">01</strong> / 04</div>
     <div class="scroll-hint"><span>Scroll</span></div>
   </section>
+
+  <!-- FOR SEO -->
+  <section style="display: none;">
+    <h2>Premium Properties in Chandigarh & Tricity</h2>
+    <p>
+      GB Realty offers some of the best properties in Chandigarh, New Chandigarh, and Mohali.
+      Our projects are designed for luxury living with modern amenities, strategic locations, and high investment value.
+    </p>
+
+    <p>
+      If you are searching for properties in Mohali or best properties in Chandigarh,
+      GB Realty provides premium residential options in the fast-growing Tricity region.
+    </p>
+  </section>
+  <!-- FOR SEO -->
 
   <!-- STATS -->
   <div class="stats-bar">
@@ -131,13 +195,13 @@
           </div>
         </div>
       </div>
-      <div class="about-images" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+      <div class="about-images" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
         <div class="about-img-main">
-          <img src="https://gbrealty.com/images/about-img1.jpg" alt="GB Realty"
+          <img src="./assets/images/about-img1.jpg" alt="GB Realty" loading="lazy"
             onerror="this.parentElement.style.background='linear-gradient(135deg,#2c1f0a,#1a1208)'">
         </div>
         <div class="about-img-accent">
-          <img src="https://gbrealty.com/images/about-img2.jpg" alt="GB Realty"
+          <img src="./assets/images/about-img2.jpg" alt="GB Realty" loading="lazy"
             onerror="this.parentElement.style.background='linear-gradient(135deg,#0a1422,#122238)'">
         </div>
         <div class="gold-bar"></div>
@@ -150,7 +214,7 @@
   <section class="project" id="project">
     <div class="project-inner">
       <div class="project-visual" data-aos="fade-up" data-aos-duration="900">
-        <img src="https://gbrealty.com/images/banner-img3.jpg" alt="Opus One"
+        <img src="./assets/images/banner-img3.jpg" alt="Opus One" loading="lazy"
           onerror="this.parentElement.style.background='linear-gradient(160deg,#1c1408,#2a2010,#0d0d0d)'">
         <div class="proj-overlay"></div>
         <div class="proj-badge">Unveiled</div>
@@ -158,7 +222,7 @@
           <h3>Opus One</h3><span>New Chandigarh</span>
         </div>
       </div>
-      <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="120">
+      <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
         <p class="section-tag">Flagship Development</p>
         <h2 class="section-title">Opus One</h2>
         <div class="divider"></div>
@@ -208,7 +272,7 @@
         </div>
       </div>
       <div>
-        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="0">
+        <div class="phil-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
           <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.5">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -220,7 +284,7 @@
             </div>
           </div>
         </div>
-        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <div class="phil-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
           <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.5">
             <circle cx="12" cy="12" r="10" />
@@ -232,7 +296,7 @@
               every detail.</div>
           </div>
         </div>
-        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="200">
+        <div class="phil-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
           <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.5">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -244,7 +308,7 @@
             </div>
           </div>
         </div>
-        <div class="phil-card" data-aos="fade-left" data-aos-duration="700" data-aos-delay="300">
+        <div class="phil-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
           <svg class="phil-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.5">
             <path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z" />
@@ -267,82 +331,74 @@
         <p class="section-tag" data-aos="fade-up">Visual Journey</p>
         <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Our Gallery</h2>
       </div>
-      <a href="#contact" class="btn-ghost" data-aos="fade-left">View All</a>
+      <a href="#contact" class="btn-ghost" data-aos="fade-up">View All</a>
     </div>
     <div class="gallery-grid">
       <div class="g-cell wide tall" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="https://gbrealty.com/images/renders/01.jpg" alt="Opus One Render"
-          onerror="this.src='https://gbrealty.com/images/gallery1.jpg'">
+        <img src="./assets/images/renders/01.jpg" alt="Best property in New Chandigarh by GB Realty"
+          onerror="this.src='./assets/images/gallery1.jpg'" loading="lazy">
         <div class="g-label">Opus One — Aerial View</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="80">
-        <img src="https://gbrealty.com/images/renders/02.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery2.jpg'">
+        <img src="./assets/images/renders/02.jpg" alt="Best property in Chandigarh by GB Realty"
+          onerror="this.src='./assets/images/gallery2.jpg'" loading="lazy">
         <div class="g-label">Tower Facade</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="130">
-        <img src="https://gbrealty.com/images/renders/07.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery3.jpg'">
+        <img src="./assets/images/renders/07.jpg" alt="Best property in Chandigarh by GB Realty"
+          onerror="this.src='./assets/images/gallery3.jpg'" loading="lazy">
         <div class="g-label">Lobby Design</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="https://gbrealty.com/images/gallery1.jpg" alt="Gallery">
+        <img src="./assets/images/gallery1.jpg" alt="Gallery" loading="lazy">
         <div class="g-label">Living Space</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="110">
-        <img src="https://gbrealty.com/images/gallery2.jpg" alt="Gallery">
+        <img src="./assets/images/gallery2.jpg" alt="Gallery" loading="lazy">
         <div class="g-label">Amenities</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="160">
-        <img src="https://gbrealty.com/images/gallery3.jpg" alt="Gallery">
+        <img src="./assets/images/gallery3.jpg" alt="Gallery" loading="lazy">
         <div class="g-label">Interior Design</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="https://gbrealty.com/images/renders/03.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery4.jpg'">
+        <img src="./assets/images/renders/03.jpg" alt="Render" onerror="this.src='./assets/images/gallery4.jpg'" loading="lazy">
         <div class="g-label">Elevation</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="https://gbrealty.com/images/renders/04.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery5.jpg'">
+        <img src="./assets/images/renders/04.jpg" alt="Render" onerror="this.src='./assets/images/gallery5.jpg'" loading="lazy">
         <div class="g-label">Landscape</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
-        <img src="https://gbrealty.com/images/renders/05.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery6.jpg'">
+        <img src="./assets/images/renders/05.jpg" alt="Render" onerror="this.src='./assets/images/gallery6.jpg'" loading="lazy">
         <div class="g-label">Pool Deck</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
-        <img src="https://gbrealty.com/images/renders/06.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery7.jpg'">
+        <img src="./assets/images/renders/06.jpg" alt="Render" onerror="this.src='./assets/images/gallery7.jpg'" loading="lazy">
         <div class="g-label">Club House</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="https://gbrealty.com/images/renders/08.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery8.jpg'">
+        <img src="./assets/images/renders/08.jpg" alt="Render" onerror="this.src='./assets/images/gallery8.jpg'" loading="lazy">
         <div class="g-label">Master Suite</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="https://gbrealty.com/images/renders/09.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery9.jpg'">
+        <img src="./assets/images/renders/09.jpg" alt="Render" onerror="this.src='./assets/images/gallery9.jpg'" loading="lazy">
         <div class="g-label">Terrace View</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
-        <img src="https://gbrealty.com/images/renders/10.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery10.jpg'">
+        <img src="./assets/images/renders/10.jpg" alt="Render" onerror="this.src='./assets/images/gallery10.jpg'" loading="lazy">
         <div class="g-label">Facade Detail</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
-        <img src="https://gbrealty.com/images/renders/11.jpg" alt="Render"
-          onerror="this.src='https://gbrealty.com/images/gallery12.jpg'">
+        <img src="./assets/images/renders/11.jpg" alt="Render" onerror="this.src='./assets/images/gallery12.jpg'" loading="lazy">
         <div class="g-label">Night View</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
-        <img src="https://gbrealty.com/images/gallery4.jpg" alt="Gallery">
+        <img src="./assets/images/gallery4.jpg" alt="Gallery" loading="lazy">
         <div class="g-label">Kitchen</div>
       </div>
       <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
-        <img src="https://gbrealty.com/images/gallery5.jpg" alt="Gallery">
+        <img src="./assets/images/gallery5.jpg" alt="Gallery" loading="lazy">
         <div class="g-label">Bedroom</div>
       </div>
     </div>
@@ -429,7 +485,7 @@
           </svg>
           <div>
             <div class="c-label">Phone</div>
-            <div class="c-value"><a href="tel:+919088990889">+91-90889-90889</a></div>
+            <div class="c-value"><a href="tel:+919088990889">+91-90090-90090</a></div>
           </div>
         </div>
         <div class="c-detail" data-aos="fade-up" data-aos-delay="180">
@@ -440,7 +496,7 @@
           </svg>
           <div>
             <div class="c-label">Email</div>
-            <div class="c-value"><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></div>
+            <div class="c-value"><a href="mailto:info@buygbrealty.com">info@buygbrealty.com</a></div>
           </div>
         </div>
         <div class="c-detail" data-aos="fade-up" data-aos-delay="220">
@@ -451,7 +507,7 @@
           </svg>
           <div>
             <div class="c-label">Address</div>
-            <div class="c-value">SCO – 1,2,3, Second Floor,<br>Sector 8C, Chandigarh – 160009</div>
+            <div class="c-value">SCO - 1,2,3, Second Floor,<br>Sector 8C, Chandigarh – 160009</div>
           </div>
         </div>
         <div class="c-detail" data-aos="fade-up" data-aos-delay="260">
@@ -466,7 +522,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-form" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+      <div class="contact-form" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
         <div class="form-title">Send Us Your Query</div>
         <div class="form-row">
           <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
@@ -496,7 +552,7 @@
   <footer>
     <div class="footer-grid">
       <div>
-        <img class="footer-logo-img" src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+        <img class="footer-logo-img" src="./assets/images/GBR-Logo-white.png" alt="GB Realty" loading="lazy"
           onerror="this.style.display='none';document.querySelector('.footer-logo-text').style.display='block'">
         <div class="footer-logo-text">GB Realty</div>
         <p class="footer-desc">Premier real estate developer delivering transformative projects in strategically located
@@ -532,7 +588,7 @@
           <li><a href="#about">About Us</a></li>
           <li><a href="#project">Portfolio</a></li>
           <li><a href="#philosophy">Philosophy</a></li>
-          <li><a href="https://gbrealty.com/career/" target="_blank" rel="noopener">Career</a></li>
+          <li><a href="./assets/career/" target="_blank" rel="noopener">Career</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -549,26 +605,24 @@
       <div>
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="tel:+919088990889">+91-90889-90889</a></li>
-          <li><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></li>
+          <li><a href="tel:+919088990889">+91-90090-90090</a></li>
+          <li><a href="mailto:info@buygbrealty.com">info@buygbrealty.com</a></li>
           <li><a href="#contact">SCO 1,2,3, Sector 8C,<br>Chandigarh 160009</a></li>
           <li style="color:var(--text-muted);font-size:13px;margin-top:4px">Mon–Sun: 10:00–18:00</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 GB Realty. All Rights Reserved. | Powered by <a
-          href="https://opulencedigitech.com/" target="_blank" rel="noopener"
-          style="color:var(--gold);text-decoration:none">Opulence Digitech</a></div>
+      <div class="footer-copy">© 2026 GB Realty. All Rights Reserved. | Made With ❤️ in India</div>
       <div class="footer-legal">
-        <a href="https://gbrealty.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://gbrealty.com/channel-policy/" target="_blank" rel="noopener">Channel Policy</a>
+        <a href="./assets/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="./assets/channel-policy/" target="_blank" rel="noopener">Channel Policy</a>
       </div>
     </div>
   </footer>
 
 
-  <!-- MODAL -->
+  <!-- GALLERY MODAL -->
   <div id="imageModal" class="img-modal">
     <span class="img-close">&times;</span>
 
@@ -576,9 +630,9 @@
     <span class="img-nav next">&#10095;</span>
 
     <div class="img-modal-content">
-      <img id="modalImg">
+      <img id="modalImg" loading="lazy">
     </div>
-    
+
     <div id="imgCaption"></div>
   </div>
 
