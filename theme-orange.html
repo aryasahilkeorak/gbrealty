@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GB Realty — Best Properties in Chandigarh | New Chandigarh | Mohali</title>
+<meta name="description" content="GB Realty offers premium residential properties in Chandigarh, New Chandigarh & Mohali. Discover Opus One — 3, 4 & 5 BHK luxury residences. RERA Approved.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+/* ════════════════════════════════════════════
+   DESIGN TOKENS  —  Obsidian × Sage × Copper
+   A refined, modern, trustworthy palette
+════════════════════════════════════════════ */
+:root {
+  /* Primary — deep slate teal */
+  --ink:        #0F1923;   /* near-black base */
+  --ink2:       #162330;   /* section alt */
+  --ink3:       #1D2E3D;   /* cards */
+
+  /* Accent 1 — warm copper / sienna */
+  --copper:     #C4783A;
+  --copper-lt:  #E09A60;
+  --copper-pale:#FDF0E5;
+
+  /* Accent 2 — sage green */
+  --sage:       #5A8C75;
+  --sage-pale:  #EBF4EF;
+
+  /* Neutrals */
+  --stone:      #F5F2EE;   /* warm off-white bg */
+  --white:      #FFFFFF;
+  --border:     #E2DBD3;
+  --border-dark:#2A3D4E;
+
+  /* Text */
+  --tx1:        #0F1923;
+  --tx2:        #4A5568;
+  --tx3:        #8A9BAD;
+  --tx-inv:     #FFFFFF;
+  --tx-inv2:    rgba(255,255,255,0.65);
+
+  /* Effects */
+  --sh-sm:  0 2px 12px rgba(15,25,35,0.08);
+  --sh-md:  0 8px 32px rgba(15,25,35,0.12);
+  --sh-lg:  0 24px 64px rgba(15,25,35,0.18);
+  --sh-cop: 0 8px 28px rgba(196,120,58,0.28);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--stone);color:var(--tx1);font-family:'Outfit',sans-serif;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--stone)}
+::-webkit-scrollbar-thumb{background:var(--copper);border-radius:3px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ════════ UTILITY ════════ */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper)}
+.eyebrow::before{content:'';width:24px;height:2px;background:currentColor;border-radius:2px;flex-shrink:0}
+.h1{font-family:'Fraunces',serif;font-size:clamp(48px,6.5vw,92px);font-weight:700;line-height:1.04;letter-spacing:-0.02em}
+.h2{font-family:'Fraunces',serif;font-size:clamp(32px,3.8vw,54px);font-weight:600;line-height:1.14;letter-spacing:-0.01em}
+.h3{font-family:'Fraunces',serif;font-size:clamp(22px,2vw,32px);font-weight:600;line-height:1.25}
+.body-lg{font-size:16px;font-weight:300;line-height:1.9;color:var(--tx2)}
+.body-sm{font-size:14px;font-weight:400;line-height:1.75;color:var(--tx2)}
+.cop-line{width:44px;height:3px;background:var(--copper);border-radius:2px;margin:18px 0}
+
+/* ════════ BUTTONS ════════ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.03em;border:none;cursor:pointer;transition:all .28s ease;text-decoration:none}
+.btn-cop{background:var(--copper);color:#fff;box-shadow:var(--sh-cop)}
+.btn-cop:hover{background:#B36830;transform:translateY(-2px);box-shadow:0 12px 36px rgba(196,120,58,.4)}
+.btn-out{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);backdrop-filter:blur(6px)}
+.btn-out:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.75)}
+.btn-out-dark{background:transparent;color:var(--tx1);border:1.5px solid var(--border)}
+.btn-out-dark:hover{border-color:var(--copper);color:var(--copper)}
+.btn-arrow::after{content:'→';transition:transform .25s}
+.btn-arrow:hover::after{transform:translateX(4px)}
+
+/* ════════ NAV ════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:74px;display:flex;align-items:center;padding:0 56px;transition:all .35s ease}
+nav.up{background:transparent}
+nav.down{background:rgba(15,25,35,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border-dark)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:38px;object-fit:contain;filter:brightness(10)}
+.nav-logo-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--white);letter-spacing:-0.01em;display:none}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.75);transition:all .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-cta{margin-left:8px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.mob-menu{display:none;position:fixed;inset:0;z-index:999;background:var(--ink);flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-menu.show{display:flex}
+.mob-menu a{font-family:'Fraunces',serif;font-size:26px;color:#fff;transition:color .2s}
+.mob-menu a:hover{color:var(--copper)}
+.mob-close{position:absolute;top:22px;right:24px;background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1}
+
+/* ════════ HERO ════════ */
+.hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;will-change:opacity}
+.hero-slide.on{opacity:1}
+
+/* Modern hero images from Unsplash (luxury real estate) */
+.hero-slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=85&fit=crop')}
+.hero-slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=85&fit=crop')}
+.hero-slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1920&q=85&fit=crop')}
+.hero-slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=85&fit=crop')}
+
+/* layered gradient for readability */
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(15,25,35,.88) 0%,rgba(15,25,35,.65) 45%,rgba(15,25,35,.22) 80%,transparent 100%)}
+
+/* animated grain texture */
+.hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.45}
+
+/* diagonal deco strip */
+.hero-strip{position:absolute;right:0;top:0;bottom:0;width:36%;z-index:3;pointer-events:none;background:linear-gradient(160deg,rgba(196,120,58,.08) 0%,rgba(196,120,58,.02) 100%);clip-path:polygon(20% 0,100% 0,100% 100%,0% 100%)}
+
+.hero-content{position:relative;z-index:10;padding:0 56px;max-width:740px}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 18px;border-radius:100px;border:1px solid rgba(196,120,58,.45);background:rgba(196,120,58,.12);backdrop-filter:blur(8px);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--copper-lt);margin-bottom:28px}
+.hero-pill-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:gp 2s infinite}
+@keyframes gp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.hero-h{color:#fff;margin-bottom:22px}
+.hero-h em{font-style:italic;color:var(--copper-lt)}
+.hero-sub{font-size:16.5px;font-weight:300;color:rgba(255,255,255,.72);line-height:1.82;max-width:520px;margin-bottom:44px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+/* bottom bar */
+.hero-bar{position:absolute;bottom:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 56px;background:rgba(15,25,35,.45);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08)}
+.slide-dots{display:flex;gap:8px;align-items:center}
+.sdot{width:26px;height:3px;border-radius:3px;background:rgba(255,255,255,.28);cursor:pointer;transition:all .3s}
+.sdot.on{width:46px;background:var(--copper)}
+.slide-counter{font-family:'Fraunces',serif;font-size:13px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px}
+.slide-counter strong{font-size:22px;color:#fff}
+.scroll-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:10px}
+.scroll-tag::after{content:'';width:38px;height:1px;background:currentColor}
+
+/* ════════ PROMO STRIP ════════ */
+.promo{background:var(--ink);padding:22px 56px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.promo p{font-size:14px;color:rgba(255,255,255,.65)}
+.promo strong{color:var(--copper-lt);font-weight:600}
+.promo-divider{width:1px;height:16px;background:rgba(255,255,255,.15);margin:0 16px}
+
+/* ════════ STATS ════════ */
+.stats{background:var(--copper);display:grid;grid-template-columns:repeat(4,1fr);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 60%);pointer-events:none}
+.stat{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.18)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Fraunces',serif;font-size:50px;font-weight:700;color:#fff;line-height:1}
+.stat-l{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.68);margin-top:6px}
+
+/* ════════ SECTION SHELL ════════ */
+.sec{padding:110px 56px}
+.sec-stone{background:var(--stone)}
+.sec-white{background:var(--white)}
+.sec-ink{background:var(--ink)}
+.sec-ink2{background:var(--ink2)}
+
+/* ════════ ABOUT ════════ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about-copy .body-lg{margin:22px 0 34px}
+.pillar-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
+.pillar{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px 20px;transition:all .3s}
+.pillar:hover{border-color:var(--copper);transform:translateY(-3px);box-shadow:var(--sh-sm)}
+.pil-ico{font-size:22px;margin-bottom:10px}
+.pil-name{font-size:14px;font-weight:700;color:var(--tx1);margin-bottom:5px}
+.pil-desc{font-size:12.5px;color:var(--tx2);line-height:1.65}
+
+/* about photos */
+.about-photos{position:relative;height:560px}
+.ph-main{position:absolute;right:0;top:0;width:83%;height:87%;border-radius:20px;overflow:hidden;box-shadow:var(--sh-lg)}
+.ph-main img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.ph-main:hover img{transform:scale(1.04)}
+.ph-accent{position:absolute;left:0;bottom:0;width:50%;height:44%;border-radius:16px;overflow:hidden;border:4px solid var(--white);box-shadow:var(--sh-md)}
+.ph-accent img{width:100%;height:100%;object-fit:cover}
+.ph-badge{position:absolute;right:18px;bottom:18px;background:var(--copper);color:#fff;border-radius:14px;padding:14px 18px;box-shadow:var(--sh-cop);z-index:2}
+.ph-badge-n{font-family:'Fraunces',serif;font-size:30px;font-weight:700;line-height:1}
+.ph-badge-t{font-size:11px;color:rgba(255,255,255,.72);letter-spacing:.06em}
+
+/* ════════ PROJECT ════════ */
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.proj-visual{border-radius:22px;overflow:hidden;position:relative;height:580px;box-shadow:var(--sh-lg)}
+.proj-visual img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.proj-visual:hover img{transform:scale(1.04)}
+.proj-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,35,.85) 0%,rgba(15,25,35,.25) 55%,transparent 100%);pointer-events:none}
+.proj-badge{position:absolute;top:24px;left:24px;background:var(--copper);color:#fff;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:8px 20px;box-shadow:var(--sh-cop)}
+.proj-name-over{position:absolute;bottom:28px;left:28px;z-index:2}
+.proj-name-over h3{font-family:'Fraunces',serif;font-size:52px;font-weight:700;color:rgba(255,255,255,.9);line-height:1}
+.proj-name-over span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:34px 0}
+.spec-cell{padding:18px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--white);transition:background .2s}
+.spec-cell:hover{background:var(--stone)}
+.spec-cell:nth-child(even){border-right:none}
+.spec-cell:nth-last-child(-n+2){border-bottom:none}
+.spec-lbl{font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tx3);margin-bottom:5px}
+.spec-val{font-size:15px;font-weight:600;color:var(--tx1)}
+.rera-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:100px;background:#ECFDF5;border:1px solid #86EFAC;font-size:12px;font-weight:700;color:#15803D;margin-top:14px}
+.rera-chip::before{content:'✓';font-size:14px}
+
+/* ════════ PHILOSOPHY ════════ */
+.phil-grid{display:grid;grid-template-columns:55fr 45fr;gap:80px;align-items:start}
+.phil-h{color:#fff}
+.phil-h em{font-style:italic;color:var(--copper-lt)}
+.phil-eye{color:var(--copper-lt) !important}
+.phil-eye::before{background:var(--copper-lt) !important}
+.phil-body{font-size:16px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.95;margin-top:20px}
+.phil-quote{font-family:'Fraunces',serif;font-style:italic;font-size:26px;line-height:1.55;color:#fff;border-left:3px solid var(--copper);padding-left:28px;margin-top:44px}
+.phil-cards{display:flex;flex-direction:column;gap:12px}
+.phil-card{display:flex;gap:16px;align-items:flex-start;padding:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;backdrop-filter:blur(4px);transition:all .3s}
+.phil-card:hover{background:rgba(255,255,255,.1);border-color:rgba(196,120,58,.4);transform:translateX(5px)}
+.phil-ico{width:42px;height:42px;border-radius:12px;background:rgba(196,120,58,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--copper-lt)}
+.phil-ct{font-size:14px;font-weight:600;color:#fff;margin-bottom:5px}
+.phil-cb{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65}
+
+/* ════════ GALLERY ════════ */
+.gal-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:10px}
+.gc{border-radius:14px;overflow:hidden;position:relative;cursor:pointer;background:var(--border)}
+.gc.w2{grid-column:span 2}
+.gc.t2{grid-row:span 2}
+.gc img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease,filter .45s ease;filter:brightness(.84) saturate(.88)}
+.gc:hover img{transform:scale(1.07);filter:brightness(1) saturate(1.1)}
+.gc-over{position:absolute;inset:0;border-radius:14px;background:linear-gradient(to top,rgba(15,25,35,.8) 0%,transparent 55%);opacity:0;transition:opacity .3s}
+.gc:hover .gc-over{opacity:1}
+.gc-lbl{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:18px 16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:0;transition:opacity .3s}
+.gc:hover .gc-lbl{opacity:1}
+.gc::after{content:'';position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 0 var(--copper);transition:box-shadow .3s}
+.gc:hover::after{box-shadow:inset 0 0 0 2px var(--copper)}
+
+/* ════════ TRUST ════════ */
+.trust-head{text-align:center;max-width:620px;margin:0 auto 56px}
+.trust-head .eyebrow{justify-content:center}
+.trust-head .eyebrow::before{display:none}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trust-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:36px 28px;position:relative;overflow:hidden;transition:all .3s}
+.trust-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--copper),var(--copper-lt));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.trust-card:hover{box-shadow:var(--sh-md);transform:translateY(-5px)}
+.trust-card:hover::before{transform:scaleX(1)}
+.trust-ico{width:54px;height:54px;border-radius:15px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;color:var(--copper);margin-bottom:22px;transition:all .3s}
+.trust-card:hover .trust-ico{background:var(--copper);color:#fff}
+.trust-ct{font-size:17px;font-weight:700;color:var(--tx1);margin-bottom:10px}
+.trust-cb{font-size:13.5px;color:var(--tx2);line-height:1.8}
+
+/* ════════ CONTACT ════════ */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:90px}
+.contact-body{font-size:15px;color:var(--tx2);line-height:1.9;margin-top:20px}
+.c-card{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:14px;background:var(--stone);border:1px solid var(--border);margin-top:14px;transition:all .25s}
+.c-card:hover{background:var(--copper-pale);border-color:var(--copper)}
+.c-ico{width:42px;height:42px;border-radius:12px;background:var(--copper);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.c-lbl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--tx3);margin-bottom:4px}
+.c-val{font-size:14.5px;font-weight:600;color:var(--tx1);line-height:1.55}
+.c-val a{color:var(--tx1);transition:color .2s}
+.c-val a:hover{color:var(--copper)}
+.form-wrap{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:46px;box-shadow:var(--sh-md)}
+.form-title{font-family:'Fraunces',serif;font-size:27px;font-weight:700;color:var(--tx1);margin-bottom:6px}
+.form-sub{font-size:14px;color:var(--tx3);margin-bottom:28px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--tx2);margin-bottom:7px}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--stone);border:1.5px solid var(--border);border-radius:10px;color:var(--tx1);padding:13px 16px;font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:all .25s;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--copper);box-shadow:0 0 0 3px rgba(196,120,58,.12);background:#fff}
+.fg textarea{resize:vertical;min-height:110px}
+.fg select option{background:#fff}
+.form-btn{width:100%;background:var(--copper);color:#fff;border:none;border-radius:12px;padding:15px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:all .3s;box-shadow:var(--sh-cop)}
+.form-btn:hover{background:#B36830;transform:translateY(-1px);box-shadow:0 10px 28px rgba(196,120,58,.45)}
+.disc{font-size:11px;color:var(--tx3);line-height:1.6;margin-top:16px}
+
+/* ════════ FOOTER ════════ */
+footer{background:var(--ink);padding:70px 56px 28px}
+.foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.foot-logo-img{height:40px;object-fit:contain;margin-bottom:16px;filter:brightness(10)}
+.foot-logo-txt{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:16px;display:none}
+.foot-desc{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.85;max-width:280px}
+.foot-soc{display:flex;gap:10px;margin-top:24px}
+.soc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:all .25s}
+.soc:hover{background:var(--copper);border-color:var(--copper);color:#fff;transform:translateY(-2px)}
+.foot-col-h{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-links a{font-size:13.5px;color:rgba(255,255,255,.5);transition:all .2s}
+.foot-links a:hover{color:#fff;padding-left:5px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.foot-copy{font-size:12.5px;color:rgba(255,255,255,.3)}
+.foot-copy a{color:var(--copper-lt);transition:color .2s}
+.foot-copy a:hover{color:var(--copper)}
+.foot-legal{display:flex;gap:24px}
+.foot-legal a{font-size:12.5px;color:rgba(255,255,255,.3);transition:color .2s}
+.foot-legal a:hover{color:#fff}
+
+/* ════════ LIGHTBOX ════════ */
+.lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:24px}
+.lb.show{display:flex}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain;box-shadow:0 0 80px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;line-height:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center}
+.lb-prev{left:16px}
+.lb-next{right:16px}
+.lb-prev:hover,.lb-next:hover{background:var(--copper);border-color:var(--copper)}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:1100px){
+  nav{padding:0 32px}
+  .sec{padding:90px 32px}
+  .hero-content{padding:0 32px}
+  .hero-bar{padding:16px 32px}
+  .promo,.stats,.footer{padding-left:32px;padding-right:32px}
+  footer{padding:60px 32px 24px}
+}
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .about-grid,.project-grid,.phil-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+  .about-photos,.proj-visual-wrap{height:380px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .gc.t2{grid-row:span 1}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .foot-bottom{flex-direction:column;gap:12px;text-align:center}
+  .promo{display:none}
+}
+@media(max-width:600px){
+  .sec{padding:64px 20px}
+  .hero-content{padding:0 20px}
+  .hero-bar{padding:14px 20px;flex-wrap:wrap;gap:10px}
+  .scroll-tag{display:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .trust-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .form-wrap{padding:28px 20px}
+  .pillar-wrap{grid-template-columns:1fr}
+  .gal-grid{grid-auto-rows:150px}
+  footer{padding:48px 20px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav" class="up">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/GBR-Logo-white.png" alt="GB Realty"
+        onerror="this.style.display='none';document.querySelector('.nav-logo-text').style.display='block'">
+      <span class="nav-logo-text">GB Realty</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#project">Portfolio</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact" class="btn btn-cop nav-cta" style="padding:10px 22px;font-size:13px">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#" onclick="closeMob()">Home</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#project" onclick="closeMob()">Portfolio</a>
+  <a href="#philosophy" onclick="closeMob()">Philosophy</a>
+  <a href="#gallery" onclick="closeMob()">Gallery</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+919009090090" style="color:var(--copper-lt);font-weight:700;font-family:'Outfit',sans-serif;font-size:18px">+91-90090-90090</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <div class="hero-slide on"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-grain"></div>
+  <div class="hero-strip"></div>
+
+  <div class="hero-content">
+    <div class="hero-pill" data-aos="fade-down" data-aos-duration="700">
+      <span class="hero-pill-dot"></span>
+      Premier Real Estate Developer · Chandigarh
+    </div>
+    <h1 class="h1 hero-h" data-aos="fade-up" data-aos-delay="80" data-aos-duration="900">
+      Elevating<br><em>Luxury</em><br>Living
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
+      Transformative real estate projects in strategically located growth corridors. Where architecture becomes a timeless legacy.
+    </p>
+    <div class="hero-ctas" data-aos="fade-up" data-aos-delay="320" data-aos-duration="800">
+      <a href="#project" class="btn btn-cop btn-arrow">View Portfolio</a>
+      <a href="#contact" class="btn btn-out">Enquire Now</a>
+    </div>
+  </div>
+
+  <div class="hero-bar">
+    <div class="slide-dots" id="dots">
+      <div class="sdot on" onclick="gSlide(0)"></div>
+      <div class="sdot" onclick="gSlide(1)"></div>
+      <div class="sdot" onclick="gSlide(2)"></div>
+      <div class="sdot" onclick="gSlide(3)"></div>
+    </div>
+    <div class="scroll-tag">Scroll to explore</div>
+    <div class="slide-counter"><strong id="sNum">01</strong>&nbsp;/ 04</div>
+  </div>
+</section>
+
+<!-- PROMO STRIP -->
+<div class="promo">
+  <p>🏆 <strong>Opus One</strong> — RERA Approved Premium Residences in New Chandigarh</p>
+  <div class="promo-divider"></div>
+  <p>📞 Call us: <strong>+91-90090-90090</strong></p>
+  <div class="promo-divider"></div>
+  <p>🕐 Mon–Sun <strong>10:00 – 18:00</strong></p>
+</div>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats">
+  <div class="stat" data-aos="fade-up" data-aos-delay="0"><div class="stat-n">8.75</div><div class="stat-l">Acres — Opus One</div></div>
+  <div class="stat" data-aos="fade-up" data-aos-delay="80"><div class="stat-n">3–5</div><div class="stat-l">BHK Premium Residences</div></div>
+  <div class="stat" data-aos="fade-up" data-aos-delay="160"><div class="stat-n">RERA</div><div class="stat-l">Approved & Certified</div></div>
+  <div class="stat" data-aos="fade-up" data-aos-delay="240"><div class="stat-n">2026</div><div class="stat-l">Chandigarh HQ</div></div>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section class="sec sec-stone" id="about">
+  <div class="about-grid">
+    <div class="about-copy">
+      <div class="eyebrow" data-aos="fade-right" data-aos-duration="700">Who We Are</div>
+      <h2 class="h2" data-aos="fade-up" data-aos-duration="820">
+        GB Realty —<br>A Legacy Being<br><em style="font-style:italic;color:var(--copper)">Written</em>
+      </h2>
+      <div class="cop-line" data-aos="fade-up" data-aos-delay="60"></div>
+      <p class="body-lg" data-aos="fade-up" data-aos-delay="100" data-aos-duration="820">
+        GB Realty is the brainchild of visionary entrepreneurs with decades of real-world experience across various business sectors with a strong national and international presence. Founded by a like-minded group of individuals with a demonstrated track record of success, GB Realty is the latest venture by a conglomerate with interests in luxury hospitality, global student mobility, education, media, and entertainment.
+      </p>
+      <a href="#contact" class="btn btn-cop btn-arrow" data-aos="fade-up" data-aos-delay="180">Read More</a>
+
+      <div class="pillar-wrap" data-aos="fade-up" data-aos-delay="240" data-aos-duration="820">
+        <div class="pillar"><div class="pil-ico">🤝</div><div class="pil-name">Our Promise</div><div class="pil-desc">Excellence, trust, and transparency in every project we undertake.</div></div>
+        <div class="pillar"><div class="pil-ico">🔭</div><div class="pil-name">Vision Manifest</div><div class="pil-desc">Pioneering global standards for quality and innovation in real estate.</div></div>
+        <div class="pillar"><div class="pil-ico">🎯</div><div class="pil-name">Mission Statement</div><div class="pil-desc">Transforming living spaces through meticulous design and sustainability.</div></div>
+        <div class="pillar"><div class="pil-ico">⭐</div><div class="pil-name">Our Values</div><div class="pil-desc">Integrity, transparency, and enduring value for all stakeholders.</div></div>
+      </div>
+    </div>
+
+    <div class="about-photos" data-aos="fade-left" data-aos-duration="920" data-aos-delay="80">
+      <div class="ph-main">
+        <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/about-img1.jpg" alt="GB Realty"
+          onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80&fit=crop'">
+      </div>
+      <div class="ph-accent">
+        <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/about-img2.jpg" alt="GB Realty Interior"
+          onerror="this.src='https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80&fit=crop'">
+      </div>
+      <div class="ph-badge">
+        <div class="ph-badge-n">8.75</div>
+        <div class="ph-badge-t">Acres of Luxury</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROJECT ══════════ -->
+<section class="sec sec-white" id="project">
+  <div class="project-grid">
+    <div class="proj-visual" data-aos="fade-right" data-aos-duration="920">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/banner-img3.jpg" alt="Opus One"
+        onerror="this.src='https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80&fit=crop'">
+      <div class="proj-grad"></div>
+      <div class="proj-badge">Unveiled</div>
+      <div class="proj-name-over">
+        <h3>Opus One</h3>
+        <span>Eco-City 2, New Chandigarh</span>
+      </div>
+    </div>
+
+    <div data-aos="fade-left" data-aos-duration="920" data-aos-delay="100">
+      <div class="eyebrow">Flagship Development</div>
+      <h2 class="h2">Opus <em style="font-style:italic;color:var(--copper)">One</em></h2>
+      <div class="cop-line"></div>
+      <p class="body-lg">
+        GB Realty's flagship premium residential real estate development. Strategically located at the vibrantly evolving suburb of Eco-City in New Chandigarh, Opus One will become a beacon of fine upscale living in the tricity region.
+      </p>
+      <div class="spec-grid">
+        <div class="spec-cell"><div class="spec-lbl">Type</div><div class="spec-val">Residential</div></div>
+        <div class="spec-cell"><div class="spec-lbl">Location</div><div class="spec-val">Eco-City 2, New Chandigarh</div></div>
+        <div class="spec-cell"><div class="spec-lbl">Total Area</div><div class="spec-val">8.75 Acres</div></div>
+        <div class="spec-cell"><div class="spec-lbl">Product Mix</div><div class="spec-val">3, 4 &amp; 5 BHK</div></div>
+      </div>
+      <div class="rera-chip">RERA Approved — PBRERA-SAS81-PR1267</div>
+      <div style="margin-top:32px"><a href="#contact" class="btn btn-cop btn-arrow">Enquire Now</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PHILOSOPHY ══════════ -->
+<section class="sec sec-ink" id="philosophy">
+  <div class="phil-grid">
+    <div>
+      <div class="eyebrow phil-eye" data-aos="fade-right">Our Belief System</div>
+      <h2 class="h2 phil-h" data-aos="fade-up" data-aos-duration="820">
+        Real Estate as<br>an <em>Art Form</em>
+      </h2>
+      <p class="phil-body" data-aos="fade-up" data-aos-delay="80" data-aos-duration="820">
+        At GB Realty, we believe real estate transcends mere construction — it is an art form that must inspire and endure. Our philosophy centres on creating spaces that seamlessly blend stability, beauty, and purpose, serving as timeless heirlooms for generations to come.
+      </p>
+      <p class="phil-body" data-aos="fade-up" data-aos-delay="140" data-aos-duration="820" style="margin-top:14px">
+        Each project is envisioned not just as a structure, but as a legacy — crafted with precision, innovation, and an unwavering commitment to excellence. By combining mindful design with uncompromising quality, GB Realty strives to deliver spaces that resonate with elegance and functionality.
+      </p>
+      <div class="phil-quote" data-aos="fade-up" data-aos-delay="220" data-aos-duration="820">
+        "Every relationship we forge and each project we undertake stands as a testament to our integrity and our vision."
+      </div>
+    </div>
+
+    <div class="phil-cards">
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="0" data-aos-duration="700">
+        <div class="phil-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg></div>
+        <div><div class="phil-ct">RERA Approved</div><div class="phil-cb">Full regulatory compliance for complete buyer confidence and peace of mind.</div></div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="700">
+        <div class="phil-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div><div class="phil-ct">Timeless Design</div><div class="phil-cb">Architecture crafted for generations with precision, sustainability, and elegance.</div></div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="700">
+        <div class="phil-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <div><div class="phil-ct">Enduring Value</div><div class="phil-cb">Investments that appreciate — exceptional returns for residents and investors alike.</div></div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="300" data-aos-duration="700">
+        <div class="phil-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+        <div><div class="phil-ct">Sustainable Vision</div><div class="phil-cb">Guided by market research, global best practices, and forward-thinking design.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section class="sec sec-stone" id="gallery">
+  <div class="gal-head">
+    <div>
+      <div class="eyebrow" data-aos="fade-right">Visual Journey</div>
+      <h2 class="h2" data-aos="fade-up" data-aos-duration="820">Our <em style="font-style:italic;color:var(--copper)">Gallery</em></h2>
+    </div>
+    <a href="#contact" class="btn btn-out-dark" data-aos="fade-left">View All</a>
+  </div>
+
+  <div class="gal-grid" id="galGrid">
+    <div class="gc w2 t2" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/01.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/01.jpg" alt="Opus One Aerial"
+        onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Opus One — Aerial View</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="80" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/02.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/02.jpg" alt="Tower Facade"
+        onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Tower Facade</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="130" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/07.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/07.jpg" alt="Lobby"
+        onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Lobby Design</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery1.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery1.jpg" alt="Living Space"
+        onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Living Space</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="100" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery2.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery2.jpg" alt="Amenities"
+        onerror="this.src='https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Amenities</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="150" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery3.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery3.jpg" alt="Interior"
+        onerror="this.src='https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Interior Design</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/03.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/03.jpg" alt="Elevation"
+        onerror="this.src='https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Elevation</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/04.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/04.jpg" alt="Landscape"
+        onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Landscape</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/05.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/05.jpg" alt="Pool Deck"
+        onerror="this.src='https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Pool Deck</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/06.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/06.jpg" alt="Club House"
+        onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Club House</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/08.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/08.jpg" alt="Master Suite"
+        onerror="this.src='https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Master Suite</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/09.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/09.jpg" alt="Terrace"
+        onerror="this.src='https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Terrace View</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/10.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/10.jpg" alt="Facade"
+        onerror="this.src='https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Facade Detail</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/11.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/renders/11.jpg" alt="Night View"
+        onerror="this.src='https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Night View</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery4.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery4.jpg" alt="Kitchen"
+        onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Kitchen</div>
+    </div>
+    <div class="gc" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60" data-src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery5.jpg">
+      <img src="https://aryasahilkeorak.github.io/gbrealty/assets/images/gallery5.jpg" alt="Bedroom"
+        onerror="this.src='https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=80&fit=crop'">
+      <div class="gc-over"></div><div class="gc-lbl">Bedroom</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TRUST ══════════ -->
+<section class="sec sec-white">
+  <div class="trust-head" data-aos="fade-up" data-aos-duration="820">
+    <div class="eyebrow" style="justify-content:center">Why Choose Us</div>
+    <h2 class="h2" style="text-align:center;margin-top:12px">Built on <em style="font-style:italic;color:var(--copper)">Trust</em>,<br>Delivered with Excellence</h2>
+    <p class="body-sm" style="text-align:center;margin-top:16px">Every promise backed by regulatory compliance, decades of expertise, and an unwavering standard of quality.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg></div>
+      <div class="trust-ct">RERA Approved</div>
+      <div class="trust-cb">Full regulatory compliance — PBRERA-SAS81-PR1267. Every detail legally verified and publicly accessible for complete buyer confidence.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <div class="trust-ct">Decades of Experience</div>
+      <div class="trust-cb">Deep expertise in luxury hospitality, global education, media, and real estate with a proven international track record of success.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+      <div class="trust-ct">Uncompromising Quality</div>
+      <div class="trust-cb">Every project crafted with precision, innovation, and an unwavering commitment to the finest materials and workmanship available.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="trust-ct">Stakeholder First</div>
+      <div class="trust-cb">Residents, investors, vendors, and team members are at the heart of everything we do — every decision made with all stakeholders' best interests in mind.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="trust-ct">Prime Location</div>
+      <div class="trust-cb">Strategically located in Eco-City 2, New Chandigarh — tricity's fastest-growing corridor with excellent connectivity and growing infrastructure.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="720">
+      <div class="trust-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+      <div class="trust-ct">Sustainable Vision</div>
+      <div class="trust-cb">Guided by global sustainability best practices and forward-thinking design principles across all strategic land holdings worldwide.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="sec sec-stone" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="eyebrow" data-aos="fade-right">Reach Out</div>
+      <h2 class="h2" data-aos="fade-up" data-aos-duration="820">Let's Start a<br><em style="font-style:italic;color:var(--copper)">Conversation</em></h2>
+      <div class="cop-line" data-aos="fade-up" data-aos-delay="60"></div>
+      <p class="contact-body body-lg" data-aos="fade-up" data-aos-delay="100">Whether you're looking to invest, purchase a home, or simply want to know more about Opus One — our team is here to guide you every step of the way.</p>
+
+      <div class="c-card" data-aos="fade-up" data-aos-delay="140">
+        <div class="c-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+        <div><div class="c-lbl">Phone</div><div class="c-val"><a href="tel:+919009090090">+91-90090-90090</a></div></div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="175">
+        <div class="c-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="c-lbl">Email</div><div class="c-val"><a href="mailto:info@buygbrealty.com">info@buygbrealty.com</a></div></div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="210">
+        <div class="c-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="c-lbl">Address</div><div class="c-val">SCO – 1,2,3, Second Floor, Sector 8C,<br>Chandigarh – 160009</div></div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="245">
+        <div class="c-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+        <div><div class="c-lbl">Work Hours</div><div class="c-val">Monday – Sunday: 10:00 – 18:00</div></div>
+      </div>
+    </div>
+
+    <div class="form-wrap" data-aos="fade-left" data-aos-duration="920" data-aos-delay="100">
+      <div class="form-title">Send Us Your Query</div>
+      <p class="form-sub">Our team typically responds within 24 hours.</p>
+      <div class="frow">
+        <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="fg"><label>E-Mail Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fg">
+        <label>Purpose</label>
+        <select>
+          <option value="">Select Purpose</option>
+          <option>Residential Property</option>
+          <option>Commercial Property</option>
+          <option>Others</option>
+        </select>
+      </div>
+      <div class="fg"><label>Enter Your Address</label><input type="text" placeholder="Your city / area"></div>
+      <button class="form-btn" onclick="handleForm(this)">Submit Enquiry →</button>
+      <p class="disc"><strong>Disclaimer:</strong> All project information, images, and visuals on this website are conceptual and for general guidance only. Features, specifications, plans, and amenities are subject to change without prior notice and as per statutory approvals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <img class="foot-logo-img" src="https://aryasahilkeorak.github.io/gbrealty/assets/images/GBR-Logo-white.png" alt="GB Realty"
+        onerror="this.style.display='none';document.querySelector('.foot-logo-txt').style.display='block'">
+      <div class="foot-logo-txt">GB Realty</div>
+      <p class="foot-desc">Premier real estate developer delivering transformative projects in strategically located growth corridors. A Venture by Optas Group.</p>
+      <div class="foot-soc">
+        <a href="https://www.facebook.com/gbrealtyofficial" class="soc" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/gbrealtyofficial/" class="soc" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://x.com/gbrealtyofc" class="soc" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@GBRealtyOfficial" class="soc" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="foot-col-h">Navigation</div>
+      <ul class="foot-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#project">Portfolio</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="https://aryasahilkeorak.github.io/gbrealty/assets/career/" target="_blank" rel="noopener">Career</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="foot-col-h">Group Verticals</div>
+      <ul class="foot-links">
+        <li><a href="#">Luxury Hospitality</a></li>
+        <li><a href="#">Global Education</a></li>
+        <li><a href="#">Media &amp; Entertainment</a></li>
+        <li><a href="#">Residential Projects</a></li>
+        <li><a href="#">Commercial</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="foot-col-h">Contact</div>
+      <ul class="foot-links">
+        <li><a href="tel:+919009090090">+91-90090-90090</a></li>
+        <li><a href="mailto:info@buygbrealty.com">info@buygbrealty.com</a></li>
+        <li><a href="#contact">SCO 1,2,3, Sector 8C,<br>Chandigarh 160009</a></li>
+        <li style="color:rgba(255,255,255,.28);font-size:13px;margin-top:4px">Mon–Sun: 10:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 GB Realty. All Rights Reserved. | Made With ❤️ in India | Powered by <a href="https://opulencedigitech.com/" target="_blank" rel="noopener">Opulence Digitech</a></div>
+    <div class="foot-legal">
+      <a href="https://aryasahilkeorak.github.io/gbrealty/assets/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="https://aryasahilkeorak.github.io/gbrealty/assets/channel-policy/" target="_blank" rel="noopener">Channel Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-prev" onclick="lbNav(-1)">❮</button>
+  <img class="lb-img" id="lbImg" src="" alt="Gallery">
+  <button class="lb-next" onclick="lbNav(1)">❯</button>
+</div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+/* AOS */
+AOS.init({ once:true, offset:80, easing:'ease-out-cubic', duration:840 });
+
+/* Navbar */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('down', window.scrollY > 50);
+  nav.classList.toggle('up', window.scrollY <= 50);
+}, { passive:true });
+
+/* Hero slider */
+let cur = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots   = document.querySelectorAll('.sdot');
+const sNum   = document.getElementById('sNum');
+const nums   = ['01','02','03','04'];
+
+function gSlide(n) {
+  slides[cur].classList.remove('on');
+  dots[cur].classList.remove('on');
+  cur = n;
+  slides[cur].classList.add('on');
+  dots[cur].classList.add('on');
+  sNum.textContent = nums[cur];
+}
+
+let timer = setInterval(() => gSlide((cur+1) % 4), 5500);
+const hero = document.querySelector('.hero');
+hero.addEventListener('mouseenter', () => clearInterval(timer));
+hero.addEventListener('mouseleave', () => { timer = setInterval(() => gSlide((cur+1) % 4), 5500); });
+
+/* Mobile menu */
+document.getElementById('ham').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.add('show');
+  document.body.style.overflow = 'hidden';
+});
+document.getElementById('mobClose').addEventListener('click', closeMob);
+function closeMob() {
+  document.getElementById('mobMenu').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+/* Gallery lightbox */
+const gcells = document.querySelectorAll('.gc');
+const lbEl   = document.getElementById('lb');
+const lbImg  = document.getElementById('lbImg');
+let lbCur = 0;
+const lbSrcs = [];
+
+gcells.forEach((cell, i) => {
+  const src = cell.querySelector('img').src;
+  lbSrcs.push(src);
+  cell.addEventListener('click', () => { lbCur = i; lbImg.src = lbSrcs[lbCur]; lbEl.classList.add('show'); document.body.style.overflow='hidden'; });
+});
+
+function lbNav(dir) {
+  lbCur = (lbCur + dir + lbSrcs.length) % lbSrcs.length;
+  lbImg.src = lbSrcs[lbCur];
+}
+function closeLb() { lbEl.classList.remove('show'); document.body.style.overflow=''; }
+lbEl.addEventListener('click', e => { if(e.target === lbEl) closeLb(); });
+document.addEventListener('keydown', e => {
+  if(!lbEl.classList.contains('show')) return;
+  if(e.key === 'Escape') closeLb();
+  if(e.key === 'ArrowLeft') lbNav(-1);
+  if(e.key === 'ArrowRight') lbNav(1);
+});
+
+/* Form */
+function handleForm(btn) {
+  const form = btn.closest('.form-wrap');
+  const inputs = form.querySelectorAll('input, select');
+  let ok = true;
+  inputs.forEach(i => { if(!i.value.trim()) { ok=false; i.style.borderColor='#EF4444'; } else { i.style.borderColor=''; } });
+  if(!ok) { btn.textContent = '⚠ Please fill all fields'; btn.style.background='#991B1B'; setTimeout(()=>{ btn.textContent='Submit Enquiry →'; btn.style.background=''; }, 2200); return; }
+  btn.textContent = 'Sending…'; btn.style.opacity='.7'; btn.disabled=true;
+  setTimeout(() => {
+    btn.textContent = '✓ Enquiry Sent — We\'ll be in touch!';
+    btn.style.background = '#15803D'; btn.style.opacity='1';
+    inputs.forEach(i => i.value='');
+  }, 1800);
+}
+</script>
+</body>
+</html>

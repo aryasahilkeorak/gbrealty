@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GB Realty — Premier Real Estate Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+/* ══════════════════════════════════════
+   DESIGN TOKENS — White × Meta-Blue
+══════════════════════════════════════ */
+:root {
+  --blue-deep:    #0A3D91;   /* deep trust navy */
+  --blue-core:    #1877F2;   /* Meta/Facebook primary */
+  --blue-mid:     #2D88FF;   /* hover & accent */
+  --blue-soft:    #E7F0FD;   /* light tint bg */
+  --blue-pale:    #F0F5FF;   /* card bg */
+  --blue-border:  #C7D9F8;   /* subtle dividers */
+  --white:        #FFFFFF;
+  --off-white:    #F7F9FC;
+  --text-dark:    #0D1B3E;   /* near-black navy text */
+  --text-mid:     #3A4B6E;   /* body copy */
+  --text-muted:   #7B8FB3;   /* secondary text */
+  --gold:         #E8A020;   /* trustworthy accent */
+  --gold-light:   #FDECC8;
+  --shadow-sm:    0 2px 12px rgba(24,119,242,0.10);
+  --shadow-md:    0 8px 32px rgba(24,119,242,0.14);
+  --shadow-lg:    0 20px 60px rgba(10,61,145,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 3px; }
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 60px;
+  height: 72px;
+  background: rgba(255,255,255,0.0);
+  transition: background 0.4s, box-shadow 0.4s, height 0.3s;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 1px 0 var(--blue-border), var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  height: 64px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { height: 38px; object-fit: contain; }
+.nav-logo-fallback {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--blue-core); letter-spacing: 0.02em; display: none;
+}
+.nav-logo-fallback span { color: var(--text-dark); }
+
+.nav-links { display: flex; gap: 8px; list-style: none; }
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13.5px; font-weight: 500; letter-spacing: 0.01em;
+  padding: 8px 14px; border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+nav.scrolled .nav-links a { color: var(--text-mid); }
+.nav-links a:hover { background: var(--blue-soft); color: var(--blue-core); }
+
+.nav-btn {
+  background: var(--blue-core);
+  color: var(--white) !important;
+  padding: 10px 22px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(24,119,242,0.35);
+  transition: all 0.25s !important;
+}
+.nav-btn:hover { background: var(--blue-deep) !important; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(24,119,242,0.4) !important; }
+
+nav.scrolled .nav-btn { color: var(--white) !important; background: var(--blue-core) !important; }
+
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
+.menu-toggle span { display: block; width: 22px; height: 2px; background: var(--white); margin: 4px 0; border-radius: 2px; transition: all 0.3s; }
+nav.scrolled .menu-toggle span { background: var(--text-dark); }
+
+.mobile-overlay {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(255,255,255,0.99); backdrop-filter: blur(16px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+}
+.mobile-overlay.open { display: flex; }
+.mobile-overlay a { font-size: 22px; font-weight: 600; color: var(--text-dark); text-decoration: none; }
+.mobile-overlay a:hover { color: var(--blue-core); }
+.mob-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--text-mid); }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  height: 100vh; min-height: 680px;
+  position: relative; display: flex; align-items: center;
+  overflow: hidden;
+}
+
+/* Slide backgrounds */
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.4s ease;
+}
+.hero-slide.active { opacity: 1; }
+/* gradient overlay – left dark for text, right keeps image */
+.hero-slide::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(105deg,
+      rgba(10,61,145,0.88) 0%,
+      rgba(10,61,145,0.70) 40%,
+      rgba(10,61,145,0.25) 70%,
+      rgba(10,61,145,0.05) 100%);
+}
+.hero-slide:nth-child(1) { background-image: url('https://gbrealty.com/images/banner1.jfif'); }
+.hero-slide:nth-child(2) { background-image: url('https://gbrealty.com/images/banner2.jfif'); }
+.hero-slide:nth-child(3) { background-image: url('https://gbrealty.com/images/banner3.jfif'); }
+.hero-slide:nth-child(4) { background-image: url('https://gbrealty.com/images/banner4.jfif'); }
+
+/* Blue diagonal stripe decoration */
+.hero-deco {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 38%;
+  background: linear-gradient(160deg, rgba(24,119,242,0.12), rgba(45,136,255,0.06));
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 3; pointer-events: none;
+}
+.hero-deco-dots {
+  position: absolute; right: 60px; top: 50%; transform: translateY(-50%);
+  z-index: 4; display: grid; grid-template-columns: repeat(6,1fr); gap: 10px;
+  opacity: 0.25;
+}
+.hero-deco-dots span {
+  display: block; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--white);
+}
+
+.hero-content {
+  position: relative; z-index: 10;
+  padding: 0 60px; max-width: 680px;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+  padding: 7px 16px; border-radius: 100px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--white);
+  margin-bottom: 28px;
+}
+.hero-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; flex-shrink: 0; animation: pulse-green 2s infinite; }
+@keyframes pulse-green { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(46px, 6.5vw, 88px);
+  font-weight: 700; line-height: 1.06;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+.hero-title em { font-style: italic; color: #93C5FD; }
+
+.hero-sub {
+  font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.78);
+  line-height: 1.8; max-width: 500px; margin-bottom: 44px;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-blue {
+  background: var(--blue-core);
+  color: var(--white);
+  padding: 15px 34px; border-radius: 8px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s; display: inline-block;
+  box-shadow: 0 4px 20px rgba(24,119,242,0.5);
+}
+.btn-blue:hover { background: var(--blue-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(24,119,242,0.55); }
+
+.btn-white {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  padding: 14px 34px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+  text-decoration: none; border: 1.5px solid rgba(255,255,255,0.45); cursor: pointer;
+  transition: all 0.3s; display: inline-block;
+  backdrop-filter: blur(6px);
+}
+.btn-white:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.8); }
+
+/* hero bottom bar */
+.hero-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.hero-slide-controls { display: flex; gap: 8px; }
+.h-dot { width: 28px; height: 3px; border-radius: 3px; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; }
+.h-dot.active { width: 48px; background: var(--white); }
+.hero-slide-counter {
+  font-size: 13px; color: rgba(255,255,255,0.6);
+  font-family: 'Playfair Display', serif; display: flex; align-items: center; gap: 6px;
+}
+.hero-slide-counter strong { font-size: 20px; color: var(--white); }
+.hero-scroll-hint {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 10px;
+}
+.hero-scroll-hint::after { content:''; width:40px; height:1px; background:rgba(255,255,255,0.35); }
+
+/* ══════════════════════════════════════
+   STATS RIBBON
+══════════════════════════════════════ */
+.stats-ribbon {
+  background: var(--blue-core);
+  display: grid; grid-template-columns: repeat(4,1fr);
+  position: relative; overflow: hidden;
+}
+.stats-ribbon::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.stat-cell {
+  padding: 32px 28px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 46px; font-weight: 700; color: var(--white); line-height: 1;
+}
+.stat-lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 7px; }
+
+/* ══════════════════════════════════════
+   SHARED SECTION STYLES
+══════════════════════════════════════ */
+section { padding: 110px 60px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue-core); margin-bottom: 16px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--blue-core); border-radius: 2px; }
+
+.section-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.8vw, 56px); font-weight: 700; line-height: 1.14;
+  color: var(--text-dark);
+}
+.section-h em { font-style: italic; color: var(--blue-core); }
+
+.section-p { font-size: 15.5px; color: var(--text-mid); line-height: 1.9; font-weight: 400; }
+
+/* accent line */
+.blue-line { width: 48px; height: 3px; background: var(--blue-core); border-radius: 2px; margin: 20px 0; }
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+.about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+
+.about-copy .section-p { margin: 24px 0 36px; }
+
+.pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; }
+.pillar-card {
+  background: var(--blue-pale);
+  border: 1px solid var(--blue-border);
+  border-radius: 12px; padding: 22px 20px;
+  transition: all 0.3s; cursor: default;
+}
+.pillar-card:hover { background: var(--blue-soft); border-color: var(--blue-core); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.pillar-icon { font-size: 22px; margin-bottom: 10px; }
+.pillar-name { font-size: 14px; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+.pillar-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+
+/* images */
+.about-photos { position: relative; height: 560px; }
+.photo-main {
+  position: absolute; right: 0; top: 0;
+  width: 82%; height: 86%;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.photo-main img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.photo-main:hover img { transform: scale(1.04); }
+
+.photo-accent {
+  position: absolute; left: 0; bottom: 0;
+  width: 50%; height: 44%;
+  border-radius: 14px; overflow: hidden;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
+}
+.photo-accent img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.photo-badge {
+  position: absolute; right: 16px; bottom: 16px;
+  background: var(--blue-core);
+  color: var(--white); border-radius: 12px;
+  padding: 14px 20px; box-shadow: var(--shadow-md);
+  z-index: 2;
+}
+.photo-badge-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1; }
+.photo-badge-txt { font-size: 11px; color: rgba(255,255,255,0.75); letter-spacing: 0.06em; }
+
+/* ══════════════════════════════════════
+   PROJECT / OPUS ONE
+══════════════════════════════════════ */
+.project-section { background: var(--off-white); }
+.project-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+.project-visual {
+  border-radius: 20px; overflow: hidden;
+  position: relative; height: 580px;
+  box-shadow: var(--shadow-lg);
+}
+.project-visual img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+.project-visual:hover img { transform: scale(1.04); }
+.proj-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,61,145,0.82) 0%, rgba(10,61,145,0.2) 50%, transparent 100%);
+  pointer-events: none;
+}
+.proj-badge {
+  position: absolute; top: 24px; left: 24px;
+  background: var(--gold); color: var(--white);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 8px 18px; border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(232,160,32,0.4);
+}
+.proj-name {
+  position: absolute; bottom: 28px; left: 28px; right: 28px; z-index: 2;
+}
+.proj-name h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700; color: var(--white); opacity: 0.95; line-height: 1;
+}
+.proj-name span { font-size: 13px; color: rgba(255,255,255,0.65); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* specs grid */
+.specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 36px 0; border: 1px solid var(--blue-border); border-radius: 12px; overflow: hidden; }
+.spec-cell {
+  padding: 18px 22px;
+  border-right: 1px solid var(--blue-border);
+  border-bottom: 1px solid var(--blue-border);
+  background: var(--white);
+  transition: background 0.2s;
+}
+.spec-cell:hover { background: var(--blue-pale); }
+.spec-cell:nth-child(even) { border-right: none; }
+.spec-cell:nth-last-child(-n+2) { border-bottom: none; }
+.spec-lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
+.spec-val { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+
+.rera-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #EBF5EB; border: 1px solid #86EFAC;
+  border-radius: 100px; padding: 9px 18px;
+  font-size: 12px; font-weight: 600; color: #15803D;
+  margin-top: 16px;
+}
+.rera-chip::before { content: '✓'; font-size: 13px; }
+
+/* ══════════════════════════════════════
+   PHILOSOPHY
+══════════════════════════════════════ */
+.philosophy { background: var(--blue-deep); position: relative; overflow: hidden; }
+/* decorative circles */
+.philosophy::before {
+  content: '';
+  position: absolute; right: -120px; top: -120px;
+  width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,136,255,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.philosophy::after {
+  content: '';
+  position: absolute; left: -80px; bottom: -80px;
+  width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(24,119,242,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.phil-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
+
+.phil-eyebrow { color: #93C5FD !important; }
+.phil-eyebrow::before { background: #93C5FD !important; }
+.phil-h { color: var(--white) !important; }
+.phil-h em { color: #93C5FD !important; }
+.phil-body { font-size: 15.5px; color: rgba(255,255,255,0.72); line-height: 1.95; margin-top: 22px; }
+
+.phil-quote {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 26px; line-height: 1.55;
+  color: var(--white);
+  border-left: 3px solid var(--blue-mid);
+  padding-left: 28px; margin-top: 44px;
+}
+
+.phil-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.phil-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px; padding: 22px 22px;
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: all 0.3s; backdrop-filter: blur(4px);
+}
+.phil-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); transform: translateX(4px); }
+.phil-card-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(24,119,242,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: #93C5FD;
+}
+.phil-card-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 5px; }
+.phil-card-body { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+/* ══════════════════════════════════════
+   GALLERY
+══════════════════════════════════════ */
+.gallery { background: var(--white); padding: 110px 60px 80px; }
+.gallery-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 10px;
+}
+.g-cell {
+  border-radius: 12px; overflow: hidden;
+  cursor: pointer; position: relative;
+  background: var(--blue-soft);
+}
+.g-cell.wide { grid-column: span 2; }
+.g-cell.tall { grid-row: span 2; }
+.g-cell img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+  filter: brightness(0.88) saturate(0.9);
+}
+.g-cell:hover img { transform: scale(1.07); filter: brightness(1) saturate(1.1); }
+.g-overlay {
+  position: absolute; inset: 0; border-radius: 12px;
+  background: linear-gradient(to top, rgba(10,61,145,0.75) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.g-cell:hover .g-overlay { opacity: 1; }
+.g-label {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 18px; opacity: 0; transition: opacity 0.3s;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--white);
+}
+.g-cell:hover .g-label { opacity: 1; }
+/* subtle blue ring on hover */
+.g-cell::after {
+  content: ''; position: absolute; inset: 0; border-radius: 12px;
+  box-shadow: inset 0 0 0 0px var(--blue-mid);
+  transition: box-shadow 0.3s;
+}
+.g-cell:hover::after { box-shadow: inset 0 0 0 2.5px var(--blue-mid); }
+
+/* ══════════════════════════════════════
+   TRUST / WHY US
+══════════════════════════════════════ */
+.trust { background: var(--off-white); }
+.trust-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+.trust-head .eyebrow { justify-content: center; }
+.trust-head .eyebrow::before { display: none; }
+
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.trust-card {
+  background: var(--white);
+  border: 1px solid var(--blue-border);
+  border-radius: 16px; padding: 36px 30px;
+  transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.trust-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--blue-core); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.trust-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--blue-border); }
+.trust-card:hover::before { transform: scaleX(1); }
+
+.trust-icon-wrap {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--blue-soft);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px; color: var(--blue-core);
+  transition: background 0.3s;
+}
+.trust-card:hover .trust-icon-wrap { background: var(--blue-core); color: var(--white); }
+.trust-card-title { font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+.trust-card-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.8; }
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+.contact-section { background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; }
+
+.contact-info-title { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin-top: 22px; }
+
+.c-card {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px 22px; border-radius: 14px;
+  background: var(--blue-pale); border: 1px solid var(--blue-border);
+  margin-top: 16px; transition: all 0.25s;
+}
+.c-card:hover { background: var(--blue-soft); border-color: var(--blue-core); }
+.c-card-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--blue-core); color: var(--white);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.c-card-lbl { font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.c-card-val { font-size: 14.5px; font-weight: 600; color: var(--text-dark); }
+.c-card-val a { color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
+.c-card-val a:hover { color: var(--blue-core); }
+
+/* Form */
+.contact-form-wrap {
+  background: var(--white); border: 1px solid var(--blue-border);
+  border-radius: 20px; padding: 44px;
+  box-shadow: var(--shadow-md);
+}
+.form-top { margin-bottom: 30px; }
+.form-top h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--text-dark); }
+.form-top p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
+
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { margin-bottom: 16px; }
+.fg label {
+  display: block; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.06em; color: var(--text-mid); margin-bottom: 7px;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; background: var(--off-white);
+  border: 1.5px solid var(--blue-border);
+  border-radius: 10px; color: var(--text-dark);
+  padding: 13px 16px; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  -webkit-appearance: none;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--blue-core);
+  box-shadow: 0 0 0 3px rgba(24,119,242,0.12);
+  background: var(--white);
+}
+.fg textarea { resize: vertical; min-height: 110px; }
+.fg select option { background: var(--white); }
+
+.form-btn {
+  width: 100%; background: var(--blue-core); color: var(--white);
+  border: none; border-radius: 10px; padding: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;
+  font-weight: 600; letter-spacing: 0.04em; cursor: pointer;
+  transition: all 0.3s; margin-top: 6px;
+  box-shadow: 0 4px 16px rgba(24,119,242,0.35);
+}
+.form-btn:hover { background: var(--blue-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(24,119,242,0.4); }
+
+.form-disclaimer {
+  font-size: 11px; color: var(--text-muted); line-height: 1.6; margin-top: 16px;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  background: var(--text-dark);
+  padding: 72px 60px 30px;
+}
+.footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 52px; }
+
+.footer-logo-img { height: 40px; object-fit: contain; margin-bottom: 18px; display: block; filter: brightness(10); }
+.footer-logo-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 18px; display: none; }
+.footer-brand-desc { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.85; max-width: 280px; }
+.footer-social { display: flex; gap: 10px; margin-top: 24px; }
+.soc-btn {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); text-decoration: none; transition: all 0.25s;
+}
+.soc-btn:hover { background: var(--blue-core); border-color: var(--blue-core); color: var(--white); }
+
+.footer-col-h { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13.5px; transition: all 0.2s; }
+.footer-links a:hover { color: var(--white); padding-left: 4px; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy { font-size: 12.5px; color: rgba(255,255,255,0.35); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12.5px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-legal a:hover { color: var(--white); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  nav, nav.scrolled { padding: 0 32px; }
+  section { padding: 80px 32px; }
+  .gallery { padding: 80px 32px 60px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  .nav-links, .nav-btn { display: none; }
+  .menu-toggle { display: block; }
+  .about-grid, .project-inner, .phil-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-photos { height: 380px; }
+  .stats-ribbon { grid-template-columns: repeat(2,1fr); }
+  .hero-scroll-hint { display: none; }
+  .hero-bottom { padding: 14px 28px; }
+  .hero-content { padding: 0 28px; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 180px; }
+  .g-cell.tall { grid-row: span 1; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 56px 28px 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+}
+@media (max-width: 560px) {
+  section { padding: 64px 20px; }
+  .gallery { padding: 64px 20px 48px; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .frow { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 28px 20px; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .hero-bottom { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+      onerror="this.style.display='none';document.querySelector('.nav-logo-fallback').style.display='block'">
+    <span class="nav-logo-fallback">GB<span>Realty</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#project">Portfolio</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+  </ul>
+  <button class="menu-toggle" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#" onclick="closeMob()">Home</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#project" onclick="closeMob()">Portfolio</a>
+  <a href="#philosophy" onclick="closeMob()">Philosophy</a>
+  <a href="#gallery" onclick="closeMob()">Gallery</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="tel:+919088990889" style="color:var(--blue-core);font-weight:700">+91-90889-90889</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+
+  <!-- diagonal deco -->
+  <div class="hero-deco"></div>
+  <div class="hero-deco-dots">
+    <!-- 48 dots -->
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-pill" data-aos="fade-down" data-aos-duration="700">
+      <span class="hero-pill-dot"></span>
+      Premier Real Estate Developer · Chandigarh
+    </div>
+    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
+      Elevating<br><em>Luxury</em><br>Living
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="220" data-aos-duration="900">
+      Transformative real estate projects in strategically located growth corridors. Where architecture becomes a timeless legacy.
+    </p>
+    <div class="hero-ctas" data-aos="fade-up" data-aos-delay="340" data-aos-duration="800">
+      <a href="#project" class="btn-blue">Explore Opus One</a>
+      <a href="#contact" class="btn-white">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-slide-controls" id="heroDots">
+      <div class="h-dot active" onclick="goSlide(0)"></div>
+      <div class="h-dot" onclick="goSlide(1)"></div>
+      <div class="h-dot" onclick="goSlide(2)"></div>
+      <div class="h-dot" onclick="goSlide(3)"></div>
+    </div>
+    <div class="hero-scroll-hint">Scroll to explore</div>
+    <div class="hero-slide-counter">
+      <strong id="slideNum">01</strong> / 04
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-ribbon">
+  <div class="stat-cell" data-aos="fade-up" data-aos-delay="0">
+    <div class="stat-num">8.75</div>
+    <div class="stat-lbl">Acres — Opus One</div>
+  </div>
+  <div class="stat-cell" data-aos="fade-up" data-aos-delay="80">
+    <div class="stat-num">3–5</div>
+    <div class="stat-lbl">BHK Premium Residences</div>
+  </div>
+  <div class="stat-cell" data-aos="fade-up" data-aos-delay="160">
+    <div class="stat-num">RERA</div>
+    <div class="stat-lbl">Approved & Certified</div>
+  </div>
+  <div class="stat-cell" data-aos="fade-up" data-aos-delay="240">
+    <div class="stat-num">2026</div>
+    <div class="stat-lbl">Established · Chandigarh</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-copy">
+      <div class="eyebrow" data-aos="fade-right" data-aos-duration="700">Who We Are</div>
+      <h2 class="section-h" data-aos="fade-up" data-aos-duration="800">
+        GB Realty —<br>A Legacy Being<br><em>Written</em>
+      </h2>
+      <div class="blue-line" data-aos="fade-up" data-aos-delay="80"></div>
+      <p class="section-p" data-aos="fade-up" data-aos-delay="120" data-aos-duration="800">
+        GB Realty is the brainchild of visionary entrepreneurs with decades of real-world experience across various business sectors with a strong national and international presence. Founded by a like-minded group of individuals with a demonstrated track record of success, GB Realty is the latest venture by a conglomerate with interests in luxury hospitality, global student mobility, education, media, and entertainment.
+      </p>
+      <a href="#contact" class="btn-blue" data-aos="fade-up" data-aos-delay="200" style="margin-top:10px">Read More</a>
+
+      <div class="pillar-grid" data-aos="fade-up" data-aos-delay="280" data-aos-duration="800">
+        <div class="pillar-card">
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-name">Our Promise</div>
+          <div class="pillar-desc">Excellence, trust, and transparency in every project we undertake.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔭</div>
+          <div class="pillar-name">Vision Manifest</div>
+          <div class="pillar-desc">Pioneering global standards for quality and innovation in real estate.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎯</div>
+          <div class="pillar-name">Mission Statement</div>
+          <div class="pillar-desc">Transforming living spaces through meticulous design and sustainability.</div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">⭐</div>
+          <div class="pillar-name">Our Values</div>
+          <div class="pillar-desc">Integrity, transparency, and enduring value for all stakeholders.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-photos" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+      <div class="photo-main">
+        <img src="https://gbrealty.com/images/about-img1.jpg" alt="GB Realty"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#C7D9F8,#E7F0FD)'">
+      </div>
+      <div class="photo-accent">
+        <img src="https://gbrealty.com/images/about-img2.jpg" alt="GB Realty Lobby"
+          onerror="this.parentElement.style.background='linear-gradient(135deg,#1877F2,#0A3D91)'">
+      </div>
+      <div class="photo-badge">
+        <div class="photo-badge-num">8.75</div>
+        <div class="photo-badge-txt">Acres of Luxury</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECT ══ -->
+<section class="project-section" id="project">
+  <div class="project-inner">
+    <div class="project-visual" data-aos="fade-right" data-aos-duration="900">
+      <img src="https://gbrealty.com/images/banner-img3.jpg" alt="Opus One"
+        onerror="this.parentElement.style.background='linear-gradient(160deg,#0A3D91,#1877F2,#2D88FF)'">
+      <div class="proj-overlay"></div>
+      <div class="proj-badge">Unveiled</div>
+      <div class="proj-name">
+        <h3>Opus One</h3>
+        <span>Eco-City 2, New Chandigarh</span>
+      </div>
+    </div>
+
+    <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="120">
+      <div class="eyebrow">Flagship Development</div>
+      <h2 class="section-h">Opus <em>One</em></h2>
+      <div class="blue-line"></div>
+      <p class="section-p" style="margin-top:6px">
+        GB Realty's flagship premium residential real estate development. Strategically located at the vibrantly evolving suburb of Eco-City in New Chandigarh, Opus One will become a beacon of fine upscale living in the tricity region.
+      </p>
+
+      <div class="specs-grid">
+        <div class="spec-cell">
+          <div class="spec-lbl">Type</div>
+          <div class="spec-val">Residential</div>
+        </div>
+        <div class="spec-cell">
+          <div class="spec-lbl">Location</div>
+          <div class="spec-val">Eco-City 2, New Chandigarh</div>
+        </div>
+        <div class="spec-cell">
+          <div class="spec-lbl">Total Area</div>
+          <div class="spec-val">8.75 Acres</div>
+        </div>
+        <div class="spec-cell">
+          <div class="spec-lbl">Product Mix</div>
+          <div class="spec-val">3, 4 &amp; 5 BHK</div>
+        </div>
+      </div>
+
+      <div class="rera-chip">RERA Approved — PBRERA-SAS81-PR1267</div>
+      <div style="margin-top:32px">
+        <a href="#contact" class="btn-blue">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section class="philosophy" id="philosophy">
+  <div class="phil-grid">
+    <div>
+      <div class="eyebrow phil-eyebrow" data-aos="fade-right">Our Belief System</div>
+      <h2 class="section-h phil-h" data-aos="fade-up" data-aos-duration="800">
+        Real Estate as<br>an <em>Art Form</em>
+      </h2>
+      <p class="phil-body" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+        At GB Realty, we believe real estate transcends mere construction — it is an art form that must inspire and endure. Our philosophy centres on creating spaces that seamlessly blend stability, beauty, and purpose, serving as timeless heirlooms for generations to come.
+      </p>
+      <p class="phil-body" data-aos="fade-up" data-aos-delay="180" data-aos-duration="800" style="margin-top:14px">
+        Each project is envisioned not just as a structure, but as a legacy — crafted with precision, innovation, and an unwavering commitment to excellence. By combining mindful design with uncompromising quality, GB Realty strives to deliver spaces that resonate with elegance and functionality.
+      </p>
+      <div class="phil-quote" data-aos="fade-up" data-aos-delay="260">
+        "Every relationship we forge and each project we undertake stands as a testament to our integrity and our vision."
+      </div>
+    </div>
+
+    <div class="phil-cards">
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="0" data-aos-duration="700">
+        <div class="phil-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>
+        </div>
+        <div>
+          <div class="phil-card-title">RERA Approved</div>
+          <div class="phil-card-body">Full regulatory compliance for complete buyer confidence and peace of mind.</div>
+        </div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="100" data-aos-duration="700">
+        <div class="phil-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div>
+          <div class="phil-card-title">Timeless Design</div>
+          <div class="phil-card-body">Architecture crafted for generations with precision, sustainability, and elegance.</div>
+        </div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="200" data-aos-duration="700">
+        <div class="phil-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <div>
+          <div class="phil-card-title">Enduring Value</div>
+          <div class="phil-card-body">Investments that appreciate — exceptional returns for residents and investors alike.</div>
+        </div>
+      </div>
+      <div class="phil-card" data-aos="fade-left" data-aos-delay="300" data-aos-duration="700">
+        <div class="phil-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z"/><path d="M2 17l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="phil-card-title">Sustainable Vision</div>
+          <div class="phil-card-body">Guided by market research, global best practices, and forward-thinking design.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="gallery" id="gallery">
+  <div class="gallery-head">
+    <div>
+      <div class="eyebrow" data-aos="fade-right">Visual Journey</div>
+      <h2 class="section-h" data-aos="fade-up" data-aos-duration="800">Our <em>Gallery</em></h2>
+    </div>
+    <a href="#contact" class="btn-blue" data-aos="fade-left" style="align-self:flex-end">View All</a>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="g-cell wide tall" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+      <img src="https://gbrealty.com/images/renders/01.jpg" alt="Opus One Render"
+        onerror="this.src='https://gbrealty.com/images/gallery1.jpg'">
+      <div class="g-overlay"></div>
+      <div class="g-label">Opus One — Aerial View</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="80">
+      <img src="https://gbrealty.com/images/renders/02.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery2.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Tower Facade</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="130">
+      <img src="https://gbrealty.com/images/renders/07.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery3.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Lobby</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+      <img src="https://gbrealty.com/images/gallery1.jpg" alt="Gallery">
+      <div class="g-overlay"></div><div class="g-label">Interior</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="110">
+      <img src="https://gbrealty.com/images/gallery2.jpg" alt="Gallery">
+      <div class="g-overlay"></div><div class="g-label">Amenities</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="160">
+      <img src="https://gbrealty.com/images/gallery3.jpg" alt="Gallery">
+      <div class="g-overlay"></div><div class="g-label">Living Space</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+      <img src="https://gbrealty.com/images/renders/03.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery4.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Elevation</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+      <img src="https://gbrealty.com/images/renders/04.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery5.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Landscape</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+      <img src="https://gbrealty.com/images/renders/05.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery6.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Pool Deck</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
+      <img src="https://gbrealty.com/images/renders/06.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery7.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Club House</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+      <img src="https://gbrealty.com/images/renders/08.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery8.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Master Suite</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+      <img src="https://gbrealty.com/images/renders/09.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery9.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Terrace View</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="120">
+      <img src="https://gbrealty.com/images/renders/10.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery10.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Facade Detail</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="180">
+      <img src="https://gbrealty.com/images/renders/11.jpg" alt="Render"
+        onerror="this.src='https://gbrealty.com/images/gallery12.jpg'">
+      <div class="g-overlay"></div><div class="g-label">Night View</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="0">
+      <img src="https://gbrealty.com/images/gallery4.jpg" alt="Gallery">
+      <div class="g-overlay"></div><div class="g-label">Kitchen</div>
+    </div>
+    <div class="g-cell" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="60">
+      <img src="https://gbrealty.com/images/gallery5.jpg" alt="Gallery">
+      <div class="g-overlay"></div><div class="g-label">Bedroom</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══ -->
+<section class="trust">
+  <div class="trust-head" data-aos="fade-up" data-aos-duration="800">
+    <div class="eyebrow" style="justify-content:center">Why Choose Us</div>
+    <h2 class="section-h" style="text-align:center">Built on <em>Trust</em>,<br>Delivered with Excellence</h2>
+    <p class="section-p" style="text-align:center;margin-top:16px;color:var(--text-muted)">Every promise we make is backed by regulatory compliance, decades of experience, and an unwavering standard of quality.</p>
+  </div>
+
+  <div class="trust-grid">
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>
+      </div>
+      <div class="trust-card-title">RERA Approved</div>
+      <div class="trust-card-body">Full regulatory compliance — PBRERA-SAS81-PR1267. Every detail legally verified and publicly accessible for complete buyer confidence.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="trust-card-title">Decades of Experience</div>
+      <div class="trust-card-body">Deep expertise in luxury hospitality, global education, media, and real estate with a proven international track record of success.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      </div>
+      <div class="trust-card-title">Uncompromising Quality</div>
+      <div class="trust-card-body">Every project crafted with precision, innovation, and an unwavering commitment to the finest materials and workmanship available.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="trust-card-title">Stakeholder First</div>
+      <div class="trust-card-body">Residents, investors, vendors, and team members are at the heart of everything — every decision made with all stakeholders' best interests in mind.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="trust-card-title">Prime Location</div>
+      <div class="trust-card-body">Strategically located in Eco-City 2, New Chandigarh — tricity's fastest-growing corridor with excellent connectivity and infrastructure.</div>
+    </div>
+    <div class="trust-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+      <div class="trust-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12M12 12L2 7l10-5 10 5-10 5z"/><path d="M2 17l10 5 10-5"/></svg>
+      </div>
+      <div class="trust-card-title">Sustainable Vision</div>
+      <div class="trust-card-body">Guided by global sustainability best practices and forward-thinking design principles across all strategic land holdings worldwide.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="eyebrow" data-aos="fade-right">Reach Out</div>
+      <h2 class="section-h" data-aos="fade-up" data-aos-duration="800">
+        Let's Start a<br><em>Conversation</em>
+      </h2>
+      <div class="blue-line" data-aos="fade-up" data-aos-delay="80"></div>
+      <p class="contact-info-title" data-aos="fade-up" data-aos-delay="100">Whether you're looking to invest, purchase a home, or simply want to know more about Opus One — our team is here to guide you every step of the way.</p>
+
+      <div class="c-card" data-aos="fade-up" data-aos-delay="140">
+        <div class="c-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        </div>
+        <div>
+          <div class="c-card-lbl">Phone</div>
+          <div class="c-card-val"><a href="tel:+919088990889">+91-90889-90889</a></div>
+        </div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="c-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="c-card-lbl">Email</div>
+          <div class="c-card-val"><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></div>
+        </div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="220">
+        <div class="c-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="c-card-lbl">Address</div>
+          <div class="c-card-val">SCO – 1,2,3, Second Floor, Sector 8C,<br>Chandigarh – 160009</div>
+        </div>
+      </div>
+      <div class="c-card" data-aos="fade-up" data-aos-delay="260">
+        <div class="c-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div>
+          <div class="c-card-lbl">Work Hours</div>
+          <div class="c-card-val">Monday – Sunday: 10:00 – 18:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+      <div class="form-top">
+        <h3>Send Us Your Query</h3>
+        <p>Our team typically responds within 24 hours.</p>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="fg"><label>E-Mail Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="fg">
+        <label>Purpose</label>
+        <select>
+          <option value="">Select Purpose</option>
+          <option>Residential Property</option>
+          <option>Commercial Property</option>
+          <option>Others</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Enter Message"></textarea></div>
+      <button class="form-btn" onclick="handleSubmit(this)">Submit Enquiry</button>
+      <p class="form-disclaimer"><strong>Disclaimer:</strong> All project information and visuals on this website are conceptual and for general guidance only. Features, specifications, and amenities are subject to change without prior notice and as per statutory approvals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img class="footer-logo-img" src="https://gbrealty.com/images/GBR-Logo-white.png" alt="GB Realty"
+        onerror="this.style.display='none';document.querySelector('.footer-logo-text').style.display='block'">
+      <div class="footer-logo-text">GB Realty</div>
+      <p class="footer-brand-desc">Premier real estate developer delivering transformative projects in strategically located growth corridors. A Venture by Optas Group.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/gbrealtyofficial" class="soc-btn" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/gbrealtyofficial/" class="soc-btn" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://x.com/gbrealtyofc" class="soc-btn" target="_blank" rel="noopener" aria-label="X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@GBRealtyOfficial" class="soc-btn" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-col-h">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#project">Portfolio</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="https://gbrealty.com/career/" target="_blank" rel="noopener">Career</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-h">Group Verticals</div>
+      <ul class="footer-links">
+        <li><a href="#">Luxury Hospitality</a></li>
+        <li><a href="#">Global Education</a></li>
+        <li><a href="#">Media & Entertainment</a></li>
+        <li><a href="#">Residential Projects</a></li>
+        <li><a href="#">Commercial</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-h">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:+919088990889">+91-90889-90889</a></li>
+        <li><a href="mailto:info@gbrealty.com">info@gbrealty.com</a></li>
+        <li><a href="#contact">SCO 1,2,3, Sector 8C,<br>Chandigarh 160009</a></li>
+        <li style="color:rgba(255,255,255,0.3);font-size:13px;margin-top:4px">Mon–Sun: 10:00–18:00</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      © 2026 GB Realty. All Rights Reserved. | Powered by
+      <a href="https://opulencedigitech.com/" target="_blank" rel="noopener" style="color:var(--blue-mid)">Opulence Digitech</a>
+    </div>
+    <div class="footer-legal">
+      <a href="https://gbrealty.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="https://gbrealty.com/channel-policy/" target="_blank" rel="noopener">Channel Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ══ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+// ── AOS ──
+AOS.init({ once: true, offset: 80, easing: 'ease-out-cubic', duration: 820 });
+
+// ── Navbar scroll ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Hero Slider ──
+let cur = 0;
+const slides  = document.querySelectorAll('.hero-slide');
+const dots    = document.querySelectorAll('.h-dot');
+const numEl   = document.getElementById('slideNum');
+const nums    = ['01','02','03','04'];
+
+function goSlide(n) {
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  numEl.textContent = nums[cur];
+}
+
+let timer = setInterval(() => goSlide((cur + 1) % slides.length), 5200);
+const heroEl = document.querySelector('.hero');
+heroEl.addEventListener('mouseenter', () => clearInterval(timer));
+heroEl.addEventListener('mouseleave', () => {
+  timer = setInterval(() => goSlide((cur + 1) % slides.length), 5200);
+});
+
+// ── Mobile menu ──
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mob').classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+document.getElementById('mobClose').addEventListener('click', closeMob);
+function closeMob() {
+  document.getElementById('mob').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── Form ──
+function handleSubmit(btn) {
+  btn.textContent = 'Sending…';
+  btn.style.opacity = '0.7';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Enquiry Sent — We\'ll be in touch!';
+    btn.style.background = '#15803D';
+    btn.style.opacity = '1';
+    btn.closest('.contact-form-wrap').querySelectorAll('input, select, textarea')
+      .forEach(el => el.value = '');
+  }, 1700);
+}
+</script>
+</body>
+</html>
