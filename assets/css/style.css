@@ -1289,6 +1289,14 @@ body {
 .banner-contact-form .form-group textarea {
     padding: 10px 14px;
     font-size: 13px;
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+}
+
+.banner-contact-form.contact-form:hover .form-group input,
+.banner-contact-form.contact-form:hover .form-group select,
+.banner-contact-form.contact-form:hover .form-group textarea {
+    opacity: 1;
 }
 
 .banner-contact-form .form-group textarea {
