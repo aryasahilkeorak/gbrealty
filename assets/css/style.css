@@ -41,6 +41,10 @@ body {
     overflow-x: hidden;
 }
 
+.ff-default {
+    font-family: sans-serif;
+}
+
 /* NAV */
 nav {
     position: fixed;
@@ -690,6 +694,13 @@ section {
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-muted);
+}
+
+.proj-name .ff-default {
+    font-size: 36px;
+    color: rgba(226, 201, 154, 0.88);
+    display: inline-block;
+    margin-left: -3px;
 }
 
 .project-specs {
