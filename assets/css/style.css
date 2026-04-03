@@ -1225,6 +1225,75 @@ body {
     margin-top: 14px;
 }
 
+
+/* banner form */
+.banner-contact-form.contact-form {
+    width: 40dvw;
+    margin-left: auto;
+    margin-right: 25px;
+    background: rgba(20, 20, 20, 0.15);
+    /* semi-transparent dark */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(200, 169, 110, 0.18);
+    padding: 28px 32px;
+    /* smaller padding */
+    opacity: 0.25;
+    /* faded by default */
+    transform: scale(0.96);
+    /* slightly shrunk */
+    transform-origin: top right;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.banner-contact-form.contact-form .form-row {
+    display: block;
+}
+
+/* Fully visible on hover */
+.banner-contact-form.contact-form:hover {
+    background: rgba(20, 20, 20, 0.92);
+    border-color: rgba(200, 169, 110, 0.45);
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Scale down inner elements slightly */
+.banner-contact-form .form-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.banner-contact-form .form-group {
+    margin-bottom: 12px;
+}
+
+.banner-contact-form .form-group input,
+.banner-contact-form .form-group select,
+.banner-contact-form .form-group textarea {
+    padding: 10px 14px;
+    font-size: 13px;
+}
+
+.banner-contact-form .form-group textarea {
+    min-height: 75px;
+}
+
+.banner-contact-form .form-submit {
+    padding: 13px;
+    margin-top: 4px;
+}
+
+.banner-contact-form .form-disclaimer {
+    font-size: 10px;
+    margin-top: 10px;
+}
+
 /* FOOTER */
 footer {
     background: var(--dark2);
@@ -1346,8 +1415,19 @@ footer {
     }
 }
 
-/* RESPONSIVE */
-@media (max-width: 960px) {
+@media (max-width: 1280px) {
+    .banner-contact-form.contact-form {
+        width: 60dvw;
+    }
+
+    .hero-title em {
+        display: block;
+    }
+}
+
+
+
+@media (max-width: 991px) {
 
     nav,
     nav.scrolled {
@@ -1366,6 +1446,10 @@ footer {
 
     section {
         padding: 80px 24px;
+    }
+
+    .hero-title em {
+        display: inline;
     }
 
     .gallery {
@@ -1440,6 +1524,10 @@ footer {
         gap: 14px;
         text-align: center;
     }
+
+    .banner-contact-form.contact-form {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1472,4 +1560,11 @@ footer {
         padding: 15px 8px;
     }
 
+}
+
+
+@media (max-height: 800px) {
+    .banner-contact-form.contact-form .form-row {
+        display: grid;
+    }
 }
