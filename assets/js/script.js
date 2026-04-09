@@ -1,17 +1,17 @@
 
 // AOS Init
 AOS.init({
-    once: true,
-    offset: 80,
-    easing: 'ease-out-cubic',
-    duration: 800
+  once: true,
+  offset: 80,
+  easing: 'ease-out-cubic',
+  duration: 800
 });
 
 
 // Navbar scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
 
@@ -23,12 +23,12 @@ const numEl = document.getElementById('slideNum');
 const nums = ['01', '02', '03', '04'];
 
 function goSlide(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = n;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-    numEl.textContent = nums[cur];
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  numEl.textContent = nums[cur];
 }
 
 let timer = setInterval(() => goSlide((cur + 1) % slides.length), 5000);
@@ -39,13 +39,13 @@ const hero = document.querySelector('.hero');
 
 // Mobile menu
 document.getElementById('menuToggle').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.getElementById('menuToggle').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('menuToggle').classList.toggle('open');
 });
 
 function closeMob() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.getElementById('menuToggle').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('menuToggle').classList.remove('open');
 }
 
 // Form
@@ -124,103 +124,324 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-// email form
+// // email form
+
+// // =============================================
+// // 🔧 REPLACE THESE WITH YOUR EMAILJS CREDENTIALS
+// const EMAILJS_PUBLIC_KEY = "xq2SsJLGLDgLvyw36";   // from Account > API Keys
+// const EMAILJS_SERVICE_ID = "service_70sqgwn";   // from Email Services
+// const EMAILJS_TEMPLATE_ID = "template_598dzqb";  // from Email Templates
+// // =============================================
+
+// // init
+// emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// const form = document.getElementById('contactForm');
+// const btn = document.querySelector('.form-submit');
+
+// // validation helpers
+// function markInvalid(id, invalid) {
+//     document.getElementById(id).classList.toggle('invalid', invalid);
+// }
+
+// function validate() {
+//     let ok = true;
+
+//     const name = document.getElementById('name').value.trim();
+//     const address = document.getElementById('address').value.trim();
+//     const mobile = document.getElementById('mobile').value.trim();
+//     const email = document.getElementById('email').value.trim();
+
+//     const nameOk = name.length >= 2;
+//     const addressOk = address.length >= 5;
+//     const mobileOk = /^[+\d\s\-()]{7,15}$/.test(mobile);
+//     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+//     markInvalid('name', !nameOk);
+//     markInvalid('address', !addressOk);
+//     markInvalid('mobile', !mobileOk);
+//     markInvalid('email', !emailOk);
+
+//     return nameOk && addressOk && mobileOk && emailOk;
+// }
+
+// // FORM SUBMIT (MAIN LOGIC)
+// form.addEventListener('submit', async function (e) {
+//     e.preventDefault();
+
+//     if (!validate()) return;
+
+//     // button loading UI
+//     btn.textContent = 'Sending...';
+//     btn.style.opacity = '0.7';
+//     btn.disabled = true;
+
+//     const templateParams = {
+//         from_name: document.getElementById('name').value.trim(),
+//         address: document.getElementById('address').value.trim(),
+//         mobile: document.getElementById('mobile').value.trim(),
+//         from_email: document.getElementById('email').value.trim(),
+//         purpose: document.querySelector('select').value,
+//         to_email: "aryasahilkeorak@gmail.com"
+//     };
+
+//     try {
+//         await emailjs.send(
+//             EMAILJS_SERVICE_ID,
+//             EMAILJS_TEMPLATE_ID,
+//             templateParams
+//         );
+
+//         // SUCCESS UI (your style preserved)
+//         btn.textContent = '✓ Enquiry Sent Successfully';
+//         btn.style.background = '#3a6b47';
+//         btn.style.color = '#fff';
+
+//         // reset form
+//         form.reset();
+
+//     } catch (error) {
+//         console.error(error);
+
+//         btn.textContent = '❌ Failed! Try Again';
+//         btn.style.background = '#8B0000';
+//         btn.style.color = '#fff';
+//     }
+
+//     // reset button after 2 sec
+//     setTimeout(() => {
+//         btn.textContent = 'Submit';
+//         btn.style.opacity = '1';
+//         btn.disabled = false;
+//         btn.style.background = '';
+//         btn.style.color = '';
+//     }, 2000);
+// });
+
+// // LIVE INPUT FIX (remove red border while typing)
+// ['name', 'address', 'mobile', 'email'].forEach(id => {
+//     document.getElementById(id).addEventListener('input', () => {
+//         markInvalid(id, false);
+//     });
+// });
+
+
+
+// // banner form
+// // =============================================
+// // EMAILJS CONFIG (same)
+// const EMAILJS_PUBLIC_KEY = "xq2SsJLGLDgLvyw36";
+// const EMAILJS_SERVICE_ID = "service_70sqgwn";
+// const EMAILJS_TEMPLATE_ID = "template_598dzqb";
+// // =============================================
+
+// emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// const form2 = document.getElementById('contactForm2');
+// const btn2 = form2.querySelector('.form-submit');
+
+// // validation helper
+// function markInvalid2(id, invalid) {
+//     document.getElementById(id).classList.toggle('invalid', invalid);
+// }
+
+// function validate2() {
+//     let ok = true;
+
+//     const name = document.getElementById('name2').value.trim();
+//     const mobile = document.getElementById('mobile2').value.trim();
+//     const purpose = document.getElementById('purpose2').value;
+
+//     const nameOk = name.length >= 2;
+//     const mobileOk = /^[+\d\s\-()]{7,15}$/.test(mobile);
+//     const purposeOk = purpose !== "";
+
+//     markInvalid2('name2', !nameOk);
+//     markInvalid2('mobile2', !mobileOk);
+//     document.getElementById('purpose2').classList.toggle('invalid', !purposeOk);
+
+//     return nameOk && mobileOk && purposeOk;
+// }
+
+// // FORM SUBMIT
+// form2.addEventListener('submit', async function (e) {
+//     e.preventDefault();
+
+//     if (!validate2()) return;
+
+//     btn2.textContent = 'Sending...';
+//     btn2.style.opacity = '0.7';
+//     btn2.disabled = true;
+
+//     const templateParams = {
+//         from_name: document.getElementById('name2').value.trim(),
+//         mobile: document.getElementById('mobile2').value.trim(),
+//         purpose: document.getElementById('purpose2').value,
+//         to_email: "aryasahilkeorak@gmail.com"
+//     };
+
+//     try {
+//         await emailjs.send(
+//             EMAILJS_SERVICE_ID,
+//             EMAILJS_TEMPLATE_ID,
+//             templateParams
+//         );
+
+//         btn2.textContent = '✓ Enquiry Sent Successfully';
+//         btn2.style.background = '#3a6b47';
+//         btn2.style.color = '#fff';
+
+//         form2.reset();
+
+//     } catch (error) {
+//         console.error(error);
+
+//         btn2.textContent = '❌ Failed! Try Again';
+//         btn2.style.background = '#8B0000';
+//         btn2.style.color = '#fff';
+//     }
+
+//     setTimeout(() => {
+//         btn2.textContent = 'Submit';
+//         btn2.style.opacity = '1';
+//         btn2.disabled = false;
+//         btn2.style.background = '';
+//         btn2.style.color = '';
+//     }, 2000);
+// });
+
+// // LIVE INPUT FIX
+// ['name2', 'mobile2'].forEach(id => {
+//     document.getElementById(id).addEventListener('input', () => {
+//         markInvalid2(id, false);
+//     });
+// });
+
+
+
 
 // =============================================
-// 🔧 REPLACE THESE WITH YOUR EMAILJS CREDENTIALS
-const EMAILJS_PUBLIC_KEY = "xq2SsJLGLDgLvyw36";   // from Account > API Keys
-const EMAILJS_SERVICE_ID = "service_70sqgwn";   // from Email Services
-const EMAILJS_TEMPLATE_ID = "template_598dzqb";  // from Email Templates
+// EMAILJS CONFIG (ONLY ONCE)
+const EMAILJS_PUBLIC_KEY = "xq2SsJLGLDgLvyw36";
+const EMAILJS_SERVICE_ID = "service_70sqgwn";
+const EMAILJS_TEMPLATE_ID = "template_598dzqb";
 // =============================================
 
-// init
 emailjs.init(EMAILJS_PUBLIC_KEY);
 
-const form = document.getElementById('contactForm');
-const btn = document.querySelector('.form-submit');
 
-// validation helpers
-function markInvalid(id, invalid) {
-    document.getElementById(id).classList.toggle('invalid', invalid);
-}
+// 🔥 COMMON VALIDATION
+function validateForm(form, isFullForm = false) {
+  let ok = true;
 
-function validate() {
-    let ok = true;
+  const name = form.querySelector('[id^="name"]').value.trim();
+  const mobile = form.querySelector('[id^="mobile"]').value.trim();
 
-    const name = document.getElementById('name').value.trim();
-    const address = document.getElementById('address').value.trim();
-    const mobile = document.getElementById('mobile').value.trim();
-    const email = document.getElementById('email').value.trim();
+  const purposeEl = form.querySelector('[id^="purpose"], select');
+  const purpose = purposeEl ? purposeEl.value : "";
 
-    const nameOk = name.length >= 2;
-    const addressOk = address.length >= 5;
-    const mobileOk = /^[+\d\s\-()]{7,15}$/.test(mobile);
+  const nameOk = name.length >= 2;
+  const mobileOk = /^[+\d\s\-()]{7,15}$/.test(mobile);
+  const purposeOk = purpose !== "";
+
+  form.querySelector('[id^="name"]').classList.toggle('invalid', !nameOk);
+  form.querySelector('[id^="mobile"]').classList.toggle('invalid', !mobileOk);
+  purposeEl?.classList.toggle('invalid', !purposeOk);
+
+  // optional fields (only for first form)
+  if (isFullForm) {
+    const email = form.querySelector('#email')?.value.trim() || "";
+    const address = form.querySelector('#address')?.value.trim() || "";
+
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const addressOk = address.length >= 5;
 
-    markInvalid('name', !nameOk);
-    markInvalid('address', !addressOk);
-    markInvalid('mobile', !mobileOk);
-    markInvalid('email', !emailOk);
+    form.querySelector('#email')?.classList.toggle('invalid', !emailOk);
+    form.querySelector('#address')?.classList.toggle('invalid', !addressOk);
 
-    return nameOk && addressOk && mobileOk && emailOk;
+    return nameOk && mobileOk && purposeOk && emailOk && addressOk;
+  }
+
+  return nameOk && mobileOk && purposeOk;
 }
 
-// FORM SUBMIT (MAIN LOGIC)
-form.addEventListener('submit', async function (e) {
+
+// 🔥 COMMON SUBMIT HANDLER
+function handleFormSubmit(form, isFullForm = false) {
+
+  const btn = form.querySelector('.form-submit');
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    if (!validate()) return;
+    if (!validateForm(form, isFullForm)) return;
 
-    // button loading UI
     btn.textContent = 'Sending...';
     btn.style.opacity = '0.7';
     btn.disabled = true;
 
     const templateParams = {
-        from_name: document.getElementById('name').value.trim(),
-        address: document.getElementById('address').value.trim(),
-        mobile: document.getElementById('mobile').value.trim(),
-        from_email: document.getElementById('email').value.trim(),
-        purpose: document.querySelector('select').value,
-        to_email: "aryasahilkeorak@gmail.com"
+      from_name: form.querySelector('[id^="name"]').value.trim(),
+      mobile: form.querySelector('[id^="mobile"]').value.trim(),
+      purpose: form.querySelector('[id^="purpose"], select')?.value || "",
+      to_email: "aryasahilkeorak@gmail.com"
     };
 
-    try {
-        await emailjs.send(
-            EMAILJS_SERVICE_ID,
-            EMAILJS_TEMPLATE_ID,
-            templateParams
-        );
-
-        // SUCCESS UI (your style preserved)
-        btn.textContent = '✓ Enquiry Sent Successfully';
-        btn.style.background = '#3a6b47';
-        btn.style.color = '#fff';
-
-        // reset form
-        form.reset();
-
-    } catch (error) {
-        console.error(error);
-
-        btn.textContent = '❌ Failed! Try Again';
-        btn.style.background = '#8B0000';
-        btn.style.color = '#fff';
+    // optional fields
+    if (isFullForm) {
+      templateParams.from_email = form.querySelector('#email')?.value.trim();
+      templateParams.address = form.querySelector('#address')?.value.trim();
     }
 
-    // reset button after 2 sec
-    setTimeout(() => {
-        btn.textContent = 'Submit';
-        btn.style.opacity = '1';
-        btn.disabled = false;
-        btn.style.background = '';
-        btn.style.color = '';
-    }, 2000);
-});
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
 
-// LIVE INPUT FIX (remove red border while typing)
-['name', 'address', 'mobile', 'email'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => {
-        markInvalid(id, false);
+      btn.textContent = '✓ Enquiry Sent Successfully';
+      btn.style.background = '#3a6b47';
+      btn.style.color = '#fff';
+
+      form.reset();
+
+    } catch (error) {
+      console.error(error);
+
+      btn.textContent = '❌ Failed! Try Again';
+      btn.style.background = '#8B0000';
+      btn.style.color = '#fff';
+    }
+
+    setTimeout(() => {
+      btn.textContent = 'Submit';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  });
+
+
+  // 🔥 LIVE INPUT FIX
+  form.querySelectorAll('input, textarea, select').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('invalid');
     });
+  });
+}
+
+
+// =============================================
+// 🚀 INIT BOTH FORMS
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form1 = document.getElementById('contactForm');   // full form
+  const form2 = document.getElementById('contactForm2');  // simple form
+
+  if (form1) handleFormSubmit(form1, true);   // with email + address
+  if (form2) handleFormSubmit(form2, false);  // only name + mobile + purpose
+
 });
