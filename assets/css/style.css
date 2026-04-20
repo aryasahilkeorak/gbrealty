@@ -655,6 +655,15 @@ section {
     transform: scale(1.04);
 }
 
+.project .section-title img {
+    max-width: 120px;
+}
+
+.proj-name img {
+    max-width: 100px;
+    margin: 0 auto 5px auto;
+}
+
 .proj-overlay {
     position: absolute;
     inset: 0;
