@@ -434,14 +434,84 @@ function handleFormSubmit(form, isFullForm = false) {
 
 
 // =============================================
-// 🚀 INIT BOTH FORMS
+// 🚀 INIT  FORMS
 
 document.addEventListener("DOMContentLoaded", function () {
 
   const form1 = document.getElementById('contactForm');   // full form
   const form2 = document.getElementById('contactForm2');  // simple form
+  const form3 = document.getElementById('contactForm3');  // NEW FORM 3
 
-  if (form1) handleFormSubmit(form1, true);   // with email + address
-  if (form2) handleFormSubmit(form2, false);  // only name + mobile + purpose
+  if (form1) handleFormSubmit(form1, true);   // full (email + address)
+  if (form2) handleFormSubmit(form2, false);  // simple
+  if (form3) handleFormSubmit(form3, false);  // 👉 configure as needed
 
 });
+
+// ========== /MOBILE POPUP FORM ========== -->
+
+(function () {
+  if (window.matchMedia('(min-width: 992px)').matches) return;
+
+  // Don't show if already dismissed or submitted
+  if (sessionStorage.getItem('gbPopupDismissed')) return;
+
+  const popup = document.getElementById('mobilePopup');
+  const sheet = document.getElementById('mpSheet');
+  const closeBtn = document.getElementById('mpClose');
+
+  function openPopup() {
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup(cb) {
+    sheet.classList.add('closing');
+    sheet.addEventListener('animationend', function handler() {
+      popup.classList.remove('active');
+      sheet.classList.remove('closing');
+      document.body.style.overflow = '';
+      sheet.removeEventListener('animationend', handler);
+      if (cb) cb();
+    });
+  }
+
+  function dismissPopup(reason) {
+    sessionStorage.setItem('gbPopupDismissed', reason); // 'closed' or 'submitted'
+    closePopup();
+  }
+
+  // Show after 5 seconds
+  setTimeout(openPopup, 5000);
+
+  // Close on ✕ button
+  closeBtn.addEventListener('click', () => dismissPopup('closed'));
+
+  // Close on backdrop click
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) dismissPopup('closed');
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup.classList.contains('active')) dismissPopup('closed');
+  });
+
+  // // Form submit
+  // document.getElementById('contactForm3').addEventListener('submit', function (e) {
+  //   e.preventDefault();
+  //   const name = document.getElementById('name3').value.trim();
+  //   const phone = document.getElementById('mobile3').value.trim();
+  //   const purpose = document.getElementById('purpose3').value;
+
+  //   if (!name || !phone) {
+  //     alert('Please fill in your name and phone number.');
+  //     return;
+  //   }
+
+  //   // TODO: your EmailJS / fetch call here
+  //   console.log('Popup enquiry:', { name, phone, purpose });
+
+  //   dismissPopup('submitted');
+  // });
+})();
